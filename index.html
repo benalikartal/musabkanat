@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musab Kanat Izgara | Eşsiz Lezzet Deneyimi</title>
+    <meta name="description" content="Közde pişen enfes kanatlar, özel soslar ve gerçek ızgara deneyimi için Musab Kanat Izgara.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="page-transition"></div>
+
+    <!-- Navbar -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                Musab<span>Kanat</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html" class="nav-link">Hakkımızda</a></li>
+                    <li><a href="menu.html" class="nav-link">Menü</a></li>
+                    <li><a href="galeri.html" class="nav-link">Galeri</a></li>
+
+
+            </ul>
+            </nav>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="images/hero_video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container hero-container" style="width: 100%; display: flex; justify-content: center;">
+                <div class="hero-content">
+                    <span class="hero-kicker reveal-up">Özel Soslu, Kömür Ateşinde</span>
+                    <h1 class="hero-title reveal-up" style="transition-delay: 0.1s; font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 700; text-transform: none; letter-spacing: 1px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 15px;">Musab <span style="font-family: inherit; font-size: inherit; font-style: normal; font-weight: inherit; color: var(--color-light-brown); display: inline-block; margin: 0;">Kanat</span></h1>
+                    <p class="hero-subtitle reveal-up" style="transition-delay: 0.2s;">Özenle seçilmiş malzemeler ve yılların ustalık sırrıyla hazırlanan, damağınızda iz bırakacak kanat ve ızgara çeşitlerimizle tanışın.</p>
+                    <div class="hero-buttons reveal-up" style="transition-delay: 0.3s;">
+                        <a href="menu.html" class="btn btn-primary magnetic">Menüyü İncele</a>
+                        <a href="#about" class="btn btn-outline magnetic">Hikayemiz</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-down">
+                <a href="#about">
+                    <span class="scroll-text">Aşağı Kaydır</span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section class="about section" id="about">
+            <div class="container about-container">
+                <div class="about-image reveal-up">
+                    <img src="images/gallery2.jpg" alt="Izgara Et">
+                    <div class="about-badge">
+                        <span class="years">15+</span>
+                        <span class="text">Yıllık<br>Tecrübe</span>
+                    </div>
+                </div>
+                
+                <div class="about-content reveal-up">
+                    <span class="section-subtitle">Hakkımızda</span>
+                    <h2 class="section-title">Ateşin Lezzetle Buluştuğu Yer</h2>
+                    <p>Musab Kanat Izgara olarak, misafirlerimize en iyi ızgara deneyimini sunmak için yola çıktık. Gizli baharat tarifimiz ve özel marinasyon tekniğimizle etleri lokum kıvamına getiriyor, kömür ateşinde ağır ağır pişiriyoruz.</p>
+                    <p>Sadece bir yemek değil, unutulmaz bir lezzet deneyimi vaat ediyoruz. Taze ve kaliteli malzemeleri ustalıkla harmanlayarak sofralarınıza taşıyoruz.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> %100 Günlük ve Taze Etler</li>
+                        <li><i class="fas fa-check-circle"></i> Kendi Üretimimiz Özel Soslar</li>
+                        <li><i class="fas fa-check-circle"></i> Odun ve Kömür Ateşi</li>
+                    </ul>
+                    
+                    <a href="hakkimizda.html" class="btn btn-primary magnetic" style="margin-top: 20px;">Daha Fazla Bilgi</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card reveal-up">
+                        <div class="feature-icon"><i class="fas fa-fire-alt"></i></div>
+                        <h3>Gerçek Kömür Ateşi</h3>
+                        <p>Etlerimiz sadece gerçek meşe kömüründe, ağır ve dengeli bir ateşte mühürlenerek pişirilir.</p>
+                    </div>
+                    
+                    <div class="feature-card reveal-up" style="transition-delay: 0.1s;">
+                        <div class="feature-icon"><i class="fas fa-pepper-hot"></i></div>
+                        <h3>Özel Baharatlar</h3>
+                        <p>Anadolu'nun dört bir yanından özenle seçilen baharatlarla hazırlanan özel marinasyon sırrımız.</p>
+                    </div>
+                    
+                    <div class="feature-card reveal-up" style="transition-delay: 0.2s;">
+                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Günlük Hazırlık</h3>
+                        <p>Tüm mezelerimiz, salatalarımız ve etlerimiz dondurulmadan, her gün taze olarak hazırlanır.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Reviews Section -->
+
+        
+        <!-- CTA Section -->
+        <section class="cta section">
+            <div class="container text-center cta-premium-card">
+                <h2 class="reveal-up" style="color: white; font-family: var(--font-heading); font-size: 2.8rem; margin-bottom: 20px; font-weight: 700;">Bu Lezzeti Hemen Deneyin</h2>
+                <p class="reveal-up" style="color: rgba(255,255,255,0.85); margin-bottom: 40px; font-size: 1.2rem; font-weight: 300;">Aileniz ve sevdiklerinizle unutulmaz bir akşam yemeği için.</p>
+                <a href="menu.html" class="btn btn-primary magnetic reveal-up" style="padding: 15px 40px; font-size: 1.1rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(196, 139, 88, 0.3);">Sipariş Ver</a>
+            </div>
+        </section>
+
+        <!-- Location / Map Section -->
+        <section class="location section" id="location" style="background-color: var(--color-white); padding: 80px 0;">
+            <div class="container">
+                <div class="section-header text-center reveal-up">
+                    <span class="section-subtitle">Neredeyiz?</span>
+                    <h2 class="section-title">Bizi Ziyaret Edin</h2>
+                </div>
+                
+                <div class="location-wrapper reveal-up" style="display: flex; flex-wrap: wrap; background: var(--color-cream); border-radius: var(--radius-card); box-shadow: var(--shadow-md); overflow: hidden; border: 1px solid rgba(0,0,0,0.03);">
+                    
+                    <div class="location-info" style="flex: 1; min-width: 300px; padding: 40px; display: flex; flex-direction: column; justify-content: center;">
+                        <h3 style="font-family: var(--font-heading); color: var(--color-black-brown); margin-bottom: 20px; font-size: 1.8rem;">Musab Kanat Izgara</h3>
+                        
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 20px; gap: 15px;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--color-light-brown); font-size: 1.5rem; margin-top: 5px;"></i>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; color: var(--color-dark-brown);">Adres</h4>
+                                <p style="margin: 0; color: #555; line-height: 1.6;">Kurtuluş Mah. Kıbrıs Cd. No: 38/B<br>09020 Efeler (Aydın Merkez) / Aydın</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; margin-bottom: 20px; gap: 15px;">
+                            <i class="fas fa-phone-alt" style="color: var(--color-light-brown); font-size: 1.5rem;"></i>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; color: var(--color-dark-brown);">Telefon</h4>
+                                <p style="margin: 0; color: #555;"><a href="tel:+905555555555" style="color: inherit; text-decoration: none;">+90 555 555 55 55</a></p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <i class="fas fa-clock" style="color: var(--color-light-brown); font-size: 1.5rem;"></i>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; color: var(--color-dark-brown);">Çalışma Saatleri</h4>
+                                <p style="margin: 0; color: #555;">Her gün: 11:00 - 23:30</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://maps.google.com/maps?q=37.842907,27.843327" target="_blank" class="btn btn-primary magnetic" style="margin-top: 30px; align-self: flex-start; border-radius: var(--radius-btn);">Yol Tarifi Al</a>
+                    </div>
+                    
+                    <div class="location-map" style="flex: 1.5; min-width: 300px; min-height: 400px; position: relative;">
+                        <iframe src="https://maps.google.com/maps?q=37.842907,27.843327&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0; position: absolute; top:0; left:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+        <footer class="footer">
+        <div class="container footer-container">
+            <div>
+                <a href="index.html" class="logo footer-logo" style="color: var(--color-cream); font-size: 2rem;">Musab<span>Kanat</span></a>
+                <p class="footer-desc">Gerçek ızgara lezzetinin adresi. Kömür ateşinde usul usul pişen lezzetlerle dolu menümüzü keşfedin.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/musabkanat" target="_blank" class="magnetic" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/musabkanat" target="_blank" class="magnetic" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/905555555555" target="_blank" class="magnetic" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Hızlı Bağlantılar</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="menu.html">Menü</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">İletişim</h4>
+                <ul class="footer-links">
+                    <li style="display:flex; gap:10px;"><i class="fas fa-map-marker-alt" style="color: var(--color-light-brown); margin-top:5px;"></i> <span>Kurtuluş Mah. Kıbrıs Cd. No: 38/B<br>Efeler / Aydın</span></li>
+                    <li style="display:flex; gap:10px; align-items:center;"><i class="fas fa-phone-alt" style="color: var(--color-light-brown);"></i> <a href="tel:+905555555555">+90 555 555 55 55</a></li>
+                    <li style="display:flex; gap:10px; align-items:center;"><i class="fas fa-clock" style="color: var(--color-light-brown);"></i> <span>Her gün: 11:00 - 23:30</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Musab Kanat Izgara. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+    <!-- Floating Social Icons -->
+    <div class="floating-socials">
+        <a href="https://wa.me/905555555555" target="_blank" class="float-whatsapp" title="WhatsApp'tan Ulaşın">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/musabkanat" target="_blank" class="float-instagram" title="Instagram'da Takip Edin">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+</body>
+</html>
+
