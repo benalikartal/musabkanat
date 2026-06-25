@@ -1024,42 +1024,49 @@ img {
 
 
 /* 2. Custom Cursor */
-body {
-    cursor: none; /* Hide default cursor */
-}
-
-a, button, .magnetic {
-    cursor: none;
-}
-
 .cursor-dot, .cursor-outline {
-    position: fixed;
-    top: 0; left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: var(--radius-round) ;
-    z-index: 99999;
-    pointer-events: none;
-    mix-blend-mode: difference;
+    display: none;
 }
 
-.cursor-dot {
-    width: 6px;
-    height: 6px;
-    background-color: #ffffff;
-}
+@media (pointer: fine) and (hover: hover) {
+    body {
+        cursor: none; /* Hide default cursor */
+    }
 
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out;
-}
+    a, button, .magnetic {
+        cursor: none;
+    }
 
-.cursor-outline.hover {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-color: transparent;
+    .cursor-dot, .cursor-outline {
+        display: block;
+        position: fixed;
+        top: 0; left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: var(--radius-round) ;
+        z-index: 99999;
+        pointer-events: none;
+        mix-blend-mode: difference;
+    }
+
+    .cursor-dot {
+        width: 6px;
+        height: 6px;
+        background-color: #ffffff;
+    }
+
+    .cursor-outline {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out;
+    }
+
+    .cursor-outline.hover {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-color: transparent;
+    }
 }
 
 
