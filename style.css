@@ -973,13 +973,13 @@ img {
     }
     
     .header {
-        width: 90%;
-        padding: 10px 15px;
+        width: 95%;
+        padding: 10px 10px;
         top: 10px;
     }
     
     .header.scrolled {
-        padding: 10px 15px;
+        padding: 10px 10px;
         top: 10px;
     }
     
