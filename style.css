@@ -1131,7 +1131,7 @@ img {
 
 @media screen and (max-width: 768px) {
     .floating-socials {
-        bottom: 80px;
+        bottom: 40px;
         right: 15px;
         gap: 12px;
     }
