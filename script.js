@@ -4,9 +4,30 @@ const navMenu = document.getElementById('nav-menu');
 const navToggle = document.getElementById('nav-toggle');
 const navLinks = document.querySelectorAll('.nav-link');
 
+// Create mobile menu overlay for clicking outside
+const menuOverlay = document.createElement('div');
+menuOverlay.classList.add('menu-overlay');
+document.body.appendChild(menuOverlay);
+
+function closeMobileMenu() {
+    if (navMenu) navMenu.classList.remove('show-menu');
+    menuOverlay.classList.remove('show-overlay');
+    if (navToggle) {
+        const icon = navToggle.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
+}
+
 if (navToggle) {
-    navToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', (e) => {
+        // Prevent click from bubbling to document immediately
+        e.stopPropagation();
         navMenu.classList.toggle('show-menu');
+        menuOverlay.classList.toggle('show-overlay');
+        
         // Toggle icon between bars and times (close)
         const icon = navToggle.querySelector('i');
         if (navMenu.classList.contains('show-menu')) {
@@ -21,11 +42,14 @@ if (navToggle) {
 
 // Close mobile menu when a link is clicked
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
-        const icon = navToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+    link.addEventListener('click', closeMobileMenu);
+});
+
+// Close mobile menu when clicking on the overlay
+['click', 'touchstart'].forEach(eventType => {
+    menuOverlay.addEventListener(eventType, (e) => {
+        e.preventDefault(); // prevent triggering click under it
+        closeMobileMenu();
     });
 });
 
