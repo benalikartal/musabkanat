@@ -48,10 +48,25 @@ navLinks.forEach(link => {
 // Close mobile menu when clicking on the overlay
 ['click', 'touchstart'].forEach(eventType => {
     menuOverlay.addEventListener(eventType, (e) => {
-        e.preventDefault(); // prevent triggering click under it
         closeMobileMenu();
     });
 });
+
+// Close mobile menu when clicking outside of it
+document.addEventListener('click', (e) => {
+    if (navMenu && navMenu.classList.contains('show-menu')) {
+        if (!navMenu.contains(e.target) && navToggle && !navToggle.contains(e.target)) {
+            closeMobileMenu();
+        }
+    }
+});
+document.addEventListener('touchstart', (e) => {
+    if (navMenu && navMenu.classList.contains('show-menu')) {
+        if (!navMenu.contains(e.target) && navToggle && !navToggle.contains(e.target)) {
+            closeMobileMenu();
+        }
+    }
+}, { passive: true });
 
 // Sticky Header on Scroll
 const header = document.getElementById('header');

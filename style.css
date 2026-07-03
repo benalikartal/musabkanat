@@ -1003,9 +1003,17 @@ img {
         color: var(--color-cream);
         font-size: 1.2rem;
     }
+
+    .header.scrolled .nav-menu .nav-link {
+        color: var(--color-cream) !important;
+    }
     
     .header.scrolled .nav-toggle {
         color: var(--color-black-brown);
+    }
+
+    .nav-menu.show-menu ~ .nav-toggle {
+        color: var(--color-cream) !important;
     }
     
     .header {
