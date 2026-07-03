@@ -943,6 +943,14 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+    .logo {
+        font-size: 1.5rem;
+        gap: 8px !important;
+    }
+    .logo img {
+        height: 45px !important;
+        margin-top: 5px !important;
+    }
     .nav-toggle {
         display: block;
         position: relative;
@@ -1170,5 +1178,17 @@ img {
     }
     .scroll-down {
         display: none;
+    }
+}
+
+/* Mobile S (Small) Logo Fixes */
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 1.1rem !important;
+        gap: 6px !important;
+    }
+    .logo img {
+        height: 32px !important;
+        margin-top: 2px !important;
     }
 }

@@ -3,11 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menü | Musab Kanat Izgara</title>
-    <meta name="description" content="Musab Kanat Izgara'nın özel soslu kanatları, kasap köftesi ve eşsiz lezzetleri.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Musab Kanat Izgara">
+    <meta name="theme-color" content="#2E1E17">
+    <title>Menü | Aydın Efeler Kanat, Köfte ve Izgara Çeşitleri</title>
+    <meta name="description" content="Musab Kanat Izgara, Aydın Efeler’de özel soslu kanat, köfte ve kömür ateşinde ızgara lezzetleri sunar. Menümüzü inceleyin.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://musabkanat.com/menu.html">
+    <meta property="og:title" content="Menü | Aydın Efeler Kanat, Köfte ve Izgara Çeşitleri">
+    <meta property="og:description" content="Musab Kanat Izgara, Aydın Efeler’de özel soslu kanat, köfte ve kömür ateşinde ızgara lezzetleri sunar. Menümüzü inceleyin.">
+    <meta property="og:image" content="https://musabkanat.com/images/menu_kofte.png">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Musab Kanat Izgara">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Menü | Aydın Efeler Kanat, Köfte ve Izgara Çeşitleri">
+    <meta name="twitter:description" content="Musab Kanat Izgara, Aydın Efeler’de özel soslu kanat, köfte ve kömür ateşinde ızgara lezzetleri sunar. Menümüzü inceleyin.">
+    <meta name="twitter:image" content="https://musabkanat.com/images/menu_kofte.png">
+
+    <link rel="canonical" href="https://musabkanat.com/menu.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Menu",
+      "name": "Musab Kanat Izgara Menüsü",
+      "url": "https://musabkanat.com/menu.html",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Ana Yemekler",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Özel Soslu Porsiyon Kanat",
+              "description": "Özel baharat karışımımızla marine edilmiş, kömür ateşinde ağır ağır pişmiş çıtır kanatlar.",
+              "offers": { "@type": "Offer", "price": "240", "priceCurrency": "TRY" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Musab Kasap Köfte",
+              "description": "Geleneksel tarifimize sadık kalarak, %100 dana etinden hazırlanan sulu ve lezzetli ızgara köfteler.",
+              "offers": { "@type": "Offer", "price": "280", "priceCurrency": "TRY" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Karışık Izgara Tabağı",
+              "description": "Tavuk şiş, köfte ve kuzu şişten oluşan, ızgara severler için doyurucu özel lezzet tabağı.",
+              "offers": { "@type": "Offer", "price": "450", "priceCurrency": "TRY" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Tavuk Şiş",
+              "description": "Özenle marine edilmiş, lokum kıvamında tavuk göğsü parçalarının mangalda eşsiz buluşması.",
+              "offers": { "@type": "Offer", "price": "220", "priceCurrency": "TRY" }
+            }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "İçecekler",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Köpüklü Yayık Ayran",
+              "offers": { "@type": "Offer", "price": "40", "priceCurrency": "TRY" }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Adana Şalgam Suyu",
+              "offers": { "@type": "Offer", "price": "35", "priceCurrency": "TRY" }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://musabkanat.com/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Menü",
+          "item": "https://musabkanat.com/menu.html"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <div class="cursor-dot"></div>
@@ -16,10 +116,11 @@
 
     <header class="header" id="header" style="background-color: var(--color-black-brown); position: relative; padding-bottom: 20px;">
         <div class="container nav-container">
-            <a href="index.html" class="logo">
-                Musab<span>Kanat</span>
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px;">
+                <img src="images/musab_logo.png" alt="Musab Kanat Logo" style="height: 60px; width: auto; object-fit: contain; margin-top: 8px;">
+                <div style="display: flex; align-items: center; padding-top: 5px;">Musab<span>Kanat</span></div>
             </a>
-            <nav class="nav-menu" id="nav-menu">
+            <nav class="nav-menu" id="nav-menu" aria-label="Ana menü">
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
                     <li><a href="hakkimizda.html" class="nav-link">Hakkımızda</a></li>
@@ -46,7 +147,7 @@
                 <div class="menu-grid reveal-up">
                     <div class="menu-card">
                         <div class="menu-img-wrapper">
-                            <img src="images/menu_wings.png" alt="Özel Soslu Kanat" class="menu-img">
+                            <img src="images/menu_wings.png" alt="Özel soslu porsiyon tavuk kanat ızgara - Musab Kanat" class="menu-img" loading="lazy" decoding="async">
                             <div class="menu-price">240 ₺</div>
                         </div>
                         <div class="menu-info">
@@ -57,7 +158,7 @@
 
                     <div class="menu-card">
                         <div class="menu-img-wrapper">
-                            <img src="images/menu_kofte.png" alt="Kasap Köfte" class="menu-img">
+                            <img src="images/menu_kofte.png" alt="Musab kasap köfte ızgara" class="menu-img" loading="lazy" decoding="async">
                             <div class="menu-price">280 ₺</div>
                         </div>
                         <div class="menu-info">
@@ -68,7 +169,7 @@
 
                     <div class="menu-card">
                         <div class="menu-img-wrapper">
-                            <img src="images/gallery3.jpg" alt="Karışık Izgara Tabağı" class="menu-img">
+                            <img src="images/gallery3.jpg" alt="Karışık ızgara tabağı köfte tavuk şiş" class="menu-img" loading="lazy" decoding="async">
                             <div class="menu-price">450 ₺</div>
                         </div>
                         <div class="menu-info">
@@ -79,7 +180,7 @@
 
                     <div class="menu-card">
                         <div class="menu-img-wrapper">
-                            <img src="images/tavuk_sis.jpg" alt="Tavuk Şiş" class="menu-img">
+                            <img src="images/tavuk_sis.jpg" alt="Kömür ateşinde tavuk şiş ızgara" class="menu-img" loading="lazy" decoding="async">
                             <div class="menu-price">220 ₺</div>
                         </div>
                         <div class="menu-info">
@@ -90,7 +191,7 @@
 
                     <div class="menu-card">
                         <div class="menu-img-wrapper">
-                            <img src="images/kuzu_sis.jpg" alt="Kuzu Şiş" class="menu-img">
+                            <img src="images/kuzu_sis.jpg" alt="Odun ateşinde kuzu şiş kebap" class="menu-img" loading="lazy" decoding="async">
                             <div class="menu-price">340 ₺</div>
                         </div>
                         <div class="menu-info">
@@ -101,7 +202,7 @@
 
                     <div class="menu-card">
                         <div class="menu-img-wrapper">
-                            <img src="images/adana.jpg" alt="Adana Kebap" class="menu-img">
+                            <img src="images/adana.jpg" alt="Zırh kıyma Adana kebap" class="menu-img" loading="lazy" decoding="async">
                             <div class="menu-price">290 ₺</div>
                         </div>
                         <div class="menu-info">
@@ -119,7 +220,7 @@
                 <div class="menu-grid reveal-up">
                     <div class="menu-card">
                         <div class="menu-img-wrapper">
-                            <img src="images/ayran.jpg" alt="Açık Ayran" class="menu-img">
+                            <img src="images/ayran.jpg" alt="Köpüklü yayık ayran" class="menu-img" loading="lazy" decoding="async">
                             <div class="menu-price">40 ₺</div>
                         </div>
                         <div class="menu-info">
@@ -130,7 +231,7 @@
 
                     <div class="menu-card">
                         <div class="menu-img-wrapper">
-                            <img src="images/salgam.jpg" alt="Şalgam Suyu" class="menu-img">
+                            <img src="images/salgam.jpg" alt="Adana şalgam suyu acılı acısız" class="menu-img" loading="lazy" decoding="async">
                             <div class="menu-price">35 ₺</div>
                         </div>
                         <div class="menu-info">
@@ -141,7 +242,7 @@
 
                     <div class="menu-card">
                         <div class="menu-img-wrapper">
-                            <img src="images/kola.jpg" alt="Kola" class="menu-img">
+                            <img src="images/kola.jpg" alt="Kola fanta gazlı içecekler" class="menu-img" loading="lazy" decoding="async">
                             <div class="menu-price">45 ₺</div>
                         </div>
                         <div class="menu-info">
@@ -192,6 +293,7 @@
 
 
 
+    <script src="bot-guard.js"></script>
     <script src="script.js"></script>
     <!-- Floating Social Icons -->
     <div class="floating-socials">

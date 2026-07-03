@@ -1,0 +1,10 @@
+/* TEAM */
+  Developer: Antigravity AI
+  Site: Musab Kanat Izgara
+  Location: Aydın, Efeler, Türkiye
+
+/* SITE */
+  Last update: 2026-07-03
+  Standards: HTML5, CSS3, JSON-LD
+  Components: Vanilla JS, FontAwesome, Google Fonts
+  Software: VS Code

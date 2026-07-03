@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://musabkanat.com/sitemap.xml
