@@ -10,7 +10,7 @@ Aşağıda web siteniz için gerçekleştirilen tüm teknik, yerel ve anlamsal o
 - **Dil ve Charset**: Tüm belgelerde UTF-8 ve `lang="tr"` yapısı korunarak doğrulandı.
 
 ## 2. Görsel SEO (Visual SEO) & Hız
-- **Resim Alt Etiketleri (Alt Tags)**: Sitedeki tüm resimlere "Izgara Et" veya "Ateş" gibi jenerik kelimeler yerine, "Kömür ateşinde pişen özel soslu kanat - Aydın Efeler" gibi uzun kuyruklu (long-tail) anahtar kelimeler içeren betimleyici etiketler eklendi.
+- **Resim Alt Etiketleri (Alt Tags)**: Sitedeki tüm resimlere "Izgara Tavuk" veya "Ateş" gibi jenerik kelimeler yerine, "Kömür ateşinde pişen özel soslu kanat - Aydın Efeler" gibi uzun kuyruklu (long-tail) anahtar kelimeler içeren betimleyici etiketler eklendi.
 - **Lazy Loading**: İlk yüklemede görünmeyen (sayfanın alt kısımlarındaki) tüm resimlere `loading="lazy" decoding="async"` özelliği eklenerek sayfanın daha hızlı açılması sağlandı.
 - **Video Preload ve Poster**: Ana sayfadaki hero videosuna `preload="metadata"` ile birlikte yüklenmeden önce görünen bir kapak fotoğrafı (`poster`) atandı.
 
