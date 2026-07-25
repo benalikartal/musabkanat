@@ -1,20 +1,42 @@
-Title: Musab Kanat Izgara
-Description: Aydın Efeler'de bulunan, kömür ateşinde pişen özel soslu kanat, tavuk köfte ve ızgara çeşitleri sunan restoran.
+# Musab Kanat Izgara
 
-Restoran Hakkında:
-Musab Kanat Izgara, 15 yılı aşkın süredir gerçek ızgara severlere hizmet vermektedir. Günlük hazırlanan taze tavuk etleri, dondurulmamış ürünler, kendi üretimimiz olan özel baharatlı soslar ve gerçek meşe kömürü ateşinde ağır mühürleme tekniği kullanılmaktadır.
+> Aydın Efeler'de meşe kömürü ateşinde özel soslu tavuk kanat, kebap ve ızgara çeşitleri sunan restoran.
 
-İletişim & Konum:
-Adres: Kurtuluş Mah. Kıbrıs Cd. No: 38/B, Efeler / Aydın
-Telefon: 0256 219 4353 - 0555 219 4353
-Çalışma Saatleri: Her gün 12:00 - 02:00
-Paket Servis: Aydın Efeler içi paket servis mevcuttur. WhatsApp ve telefon üzerinden sipariş alınmaktadır.
+## İşletme & İletişim Bilgileri
+- **İşletme Adı:** Musab Kanat Izgara
+- **Adres:** Kurtuluş Mah. Kıbrıs Cd. No: 38/B, 09020 Efeler / Aydın
+- **Telefon:** 0256 219 4353 / 0555 219 4353
+- **Çalışma Saatleri:** Her gün 12:00 - 02:00
+- **Servis Türleri:** Restoranda Masa Servisi, Paket Servis, Gel-Al
+- **Sipariş Kanalları:** Telefon ve WhatsApp hattı (+905552194353)
 
-Menü:
-- Özel Soslu Porsiyon Kanat (??? TL)
-- Musab Tavuk Köfte (??? TL)
-- Karışık Tavuk Izgara Tabağı (??? TL)
-- Tavuk Şiş (??? TL)
-- Tavuk Pirzola (??? TL)
-- Tavuk Adana Kebap (??? TL)
-İçecekler: Köpüklü Yayık Ayran, Adana Şalgam Suyu, Kola
+## Menü ve Fiyat Listesi (Güncel)
+
+### Izgaralar & Ana Yemekler
+- **Yaprak Kanat (Özel Soslu):** 345 ₺
+- **Adana Kebap (Zırh Kıyma, Acılı):** 445 ₺
+- **Urfa Kebap (Zırh Kıyma, Acısız):** 445 ₺
+- **Musab Tavuk Köfte:** 445 ₺
+- **Tavuk Izgara:** 345 ₺
+- **Patates Kızartması (Porsiyon):** 85 ₺
+- **Taze Çoban Salata:** 85 ₺
+
+### Tatlılar
+- **Kazan Dibi (Sütlü Tatlı):** 100 ₺
+- **Kemal Paşa Tatlısı (Şerbetli):** 100 ₺
+
+### İçecekler
+- **Kutu & Cam İçecekler (Kola, Fanta, Sprite):** 70 ₺
+- **Fuse Tea Soğuk Çay:** 70 ₺
+- **Cappy Meyve Suları (Limonata 60 ₺ / Kutu Meyve Suları 70 ₺):** 60 ₺ - 70 ₺
+- **Köpüklü Yayık Ayran:** 60 ₺
+- **Adana Şalgam Suyu (Acılı / Acısız):** 45 ₺
+- **Soda (Maden Suyu):** 40 ₺
+- **Taze Demleme Çay:** 20 ₺
+- **Buz Gibi Su (500ml):** 20 ₺
+
+## Önemli Bağlantılar
+- [Ana Sayfa](https://musabkanat.com/)
+- [Menü & Fiyat Listesi](https://musabkanat.com/menu.html)
+- [Hakkımızda](https://musabkanat.com/hakkimizda.html)
+- [Galeri](https://musabkanat.com/galeri.html)

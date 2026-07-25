@@ -1,4 +1,16 @@
 User-agent: *
 Allow: /
+Disallow: /admin.html
+Disallow: /scratch/
+Disallow: /bot-guard.js
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
 
 Sitemap: https://musabkanat.com/sitemap.xml

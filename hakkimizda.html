@@ -37,19 +37,40 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Ana Sayfa",
-          "item": "https://musabkanat.com/index.html"
+          "@type": "AboutPage",
+          "@id": "https://musabkanat.com/hakkimizda.html#webpage",
+          "url": "https://musabkanat.com/hakkimizda.html",
+          "name": "Hakkımızda | Musab Kanat Izgara Aydın Efeler",
+          "description": "Musab Kanat Izgara'nın hikayesi, yıllara dayanan tecrübesi ve Aydın Efeler’deki kömür ateşi lezzetleri hakkında bilgi alın.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://musabkanat.com/#website",
+            "name": "Musab Kanat Izgara",
+            "url": "https://musabkanat.com/"
+          },
+          "about": {
+            "@id": "https://musabkanat.com/#restaurant"
+          }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Hakkımızda",
-          "item": "https://musabkanat.com/hakkimizda.html"
+          "@type": "BreadcrumbList",
+          "@id": "https://musabkanat.com/hakkimizda.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://musabkanat.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Hakkımızda",
+              "item": "https://musabkanat.com/hakkimizda.html"
+            }
+          ]
         }
       ]
     }
@@ -72,9 +93,7 @@
                     <li><a href="hakkimizda.html" class="nav-link active">Hakkımızda</a></li>
                     <li><a href="menu.html" class="nav-link">Menü</a></li>
                     <li><a href="galeri.html" class="nav-link">Galeri</a></li>
-
-
-            </ul>
+                </ul>
             </nav>
             <div class="nav-toggle" id="nav-toggle">
                 <i class="fas fa-bars"></i>
@@ -87,7 +106,7 @@
             <div class="container">
                 <div class="section-header text-center reveal-up">
                     <span class="section-subtitle">Hikayemiz</span>
-                    <h2 class="section-title">Biz Kimiz?</h2>
+                    <h1 class="section-title">Biz Kimiz?</h1>
                 </div>
                 <div style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: #555;" class="reveal-up">
                     <p style="margin-bottom: 20px; font-size: 1.1rem;">Musab Kanat Izgara, 15 yılı aşkın süredir gerçek ızgara severlerin buluşma noktası. En taze tavuk etlerini, Anadolu'nun dört bir yanından özenle seçilen baharatlarla harmanlayarak, tamamen geleneksel kömür ateşinde pişiriyoruz.</p>

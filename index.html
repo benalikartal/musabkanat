@@ -13,7 +13,7 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://musabkanat.com/index.html">
+    <meta property="og:url" content="https://musabkanat.com/">
     <meta property="og:title" content="Musab Kanat Izgara | Aydın Efeler’de Kömür Ateşinde Kanat">
     <meta property="og:description" content="Musab Kanat Izgara, Aydın Efeler’de özel soslu kanat, köfte ve kömür ateşinde ızgara lezzetleri sunar.">
     <meta property="og:image" content="https://musabkanat.com/images/gallery1.jpg">
@@ -26,7 +26,7 @@
     <meta name="twitter:description" content="Musab Kanat Izgara, Aydın Efeler’de özel soslu kanat, köfte ve kömür ateşinde ızgara lezzetleri sunar.">
     <meta name="twitter:image" content="https://musabkanat.com/images/gallery1.jpg">
 
-    <link rel="canonical" href="https://musabkanat.com/index.html">
+    <link rel="canonical" href="https://musabkanat.com/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,101 +37,114 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Musab Kanat Izgara",
-      "description": "Aydın Efeler’de kömür ateşinde özel soslu kanat, köfte ve ızgara lezzetleri sunan restoran.",
-      "url": "https://musabkanat.com/",
-      "telephone": "+902562194353",
-      "priceRange": "₺₺",
-      "servesCuisine": ["Türk mutfağı", "Izgara", "Kanat"],
-      "image": "https://musabkanat.com/images/gallery1.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Kurtuluş Mah. Kıbrıs Cd. No: 38/B",
-        "addressLocality": "Efeler",
-        "addressRegion": "Aydın",
-        "postalCode": "09020",
-        "addressCountry": "TR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 37.842907,
-        "longitude": 27.843327
-      },
-      "openingHoursSpecification": [
+      "@graph": [
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "12:00",
-          "closes": "02:00"
-        }
-      ],
-      "sameAs": [
-        "https://www.instagram.com/musab.kanat?igsh=bWZyMm4yMzB2djBu&utm_source=qr",
-        "https://facebook.com/musabkanat"
-      ],
-      "hasMap": "https://maps.google.com/maps?q=37.842907,27.843327",
-      "menu": "https://musabkanat.com/menu.html"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Ana Sayfa",
-          "item": "https://musabkanat.com/index.html"
-        }
-      ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Musab Kanat Izgara nerede?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Restoranımız, Aydın merkez Efeler ilçesinde, Kurtuluş Mah. Kıbrıs Cd. No: 38/B adresinde hizmet vermektedir."
-          }
+          "@type": "Restaurant",
+          "@id": "https://musabkanat.com/#restaurant",
+          "name": "Musab Kanat Izgara",
+          "alternateName": "Musab Kanat",
+          "description": "Aydın Efeler’de kömür ateşinde özel soslu kanat, Adana & Urfa kebap, köfte ve ızgara lezzetleri sunan restoran.",
+          "url": "https://musabkanat.com/",
+          "telephone": "+902562194353",
+          "priceRange": "₺₺",
+          "servesCuisine": ["Türk mutfağı", "Izgara", "Kanat", "Kebap"],
+          "image": "https://musabkanat.com/images/gallery1.jpg",
+          "logo": "https://musabkanat.com/images/musab_logo.png",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Kurtuluş Mah. Kıbrıs Cd. No: 38/B",
+            "addressLocality": "Efeler",
+            "addressRegion": "Aydın",
+            "postalCode": "09020",
+            "addressCountry": "TR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 37.842907,
+            "longitude": 27.843327
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "12:00",
+              "closes": "02:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/musab.kanat?igsh=bWZyMm4yMzB2djBu&utm_source=qr",
+            "https://facebook.com/musabkanat"
+          ],
+          "hasMap": "https://maps.google.com/maps?q=37.842907,27.843327",
+          "hasMenu": "https://musabkanat.com/menu.html"
         },
         {
-          "@type": "Question",
-          "name": "Çalışma saatleri nedir?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Haftanın her günü 12:00 ile gece 02:00 saatleri arasında kesintisiz hizmet vermekteyiz."
-          }
+          "@type": "WebSite",
+          "@id": "https://musabkanat.com/#website",
+          "url": "https://musabkanat.com/",
+          "name": "Musab Kanat Izgara",
+          "publisher": {
+            "@id": "https://musabkanat.com/#restaurant"
+          },
+          "inLanguage": "tr-TR"
         },
         {
-          "@type": "Question",
-          "name": "Paket servis veya WhatsApp ile sipariş verilebilir mi?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Evet, Aydın Efeler içi paket servisimiz mevcuttur. Bize telefon numaralarımızdan veya doğrudan WhatsApp hattımızdan ulaşarak siparişinizi verebilirsiniz."
-          }
+          "@type": "BreadcrumbList",
+          "@id": "https://musabkanat.com/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://musabkanat.com/"
+            }
+          ]
         },
         {
-          "@type": "Question",
-          "name": "Menüde hangi lezzetler var?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Özel soslu tavuk kanat, tavuk köfte, karışık tavuk ızgara, tavuk şiş ve tavuk pirzola gibi kömür ateşinde pişen taze tavuk eti çeşitlerimiz bulunmaktadır."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Aydın Efeler’de kanat yemek için neden Musab Kanat tercih edilir?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Günlük hazırlanan taze tavuk etlerimiz, dondurulmamış ürünlerimiz, kendi üretimimiz olan özel baharatlı soslarımız ve gerçek meşe kömürü ateşinde ağır ağır mühürleme tekniğimiz sayesinde damakta iz bırakan bir lezzet sunuyoruz."
-          }
+          "@type": "FAQPage",
+          "@id": "https://musabkanat.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Musab Kanat Izgara nerede?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Restoranımız, Aydın merkez Efeler ilçesinde, Kurtuluş Mah. Kıbrıs Cd. No: 38/B adresinde hizmet vermektedir."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Çalışma saatleri nedir?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Haftanın her günü 12:00 ile gece 02:00 saatleri arasında kesintisiz hizmet vermekteyiz."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Paket servis veya WhatsApp ile sipariş verilebilir mi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evet, Aydın Efeler içi paket servisimiz mevcuttur. Bize telefon numaralarımızdan veya doğrudan WhatsApp hattımızdan ulaşarak siparişinizi verebilirsiniz."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Menüde hangi lezzetler var?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Özel soslu tavuk kanat, Adana & Urfa kebap, tavuk köfte, patates kızartması, çoban salata, kazandibi, kemalpaşa ve ferahlatıcı içecek çeşitlerimiz bulunmaktadır."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Aydın Efeler’de kanat yemek için neden Musab Kanat tercih edilir?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Günlük hazırlanan taze tavuk etlerimiz, dondurulmamış ürünlerimiz, kendi üretimimiz olan özel baharatlı soslarımız ve gerçek meşe kömürü ateşinde ağır ağır mühürleme tekniğimiz sayesinde damakta iz bırakan bir lezzet sunuyoruz."
+              }
+            }
+          ]
         }
       ]
     }

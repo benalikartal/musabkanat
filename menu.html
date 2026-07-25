@@ -37,141 +37,160 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Menu",
-      "name": "Musab Kanat Izgara Menüsü",
-      "url": "https://musabkanat.com/menu.html",
-      "hasMenuSection": [
+      "@graph": [
         {
-          "@type": "MenuSection",
-          "name": "Izgaralar & Ana Yemekler",
-          "hasMenuItem": [
-            {
-              "@type": "MenuItem",
-              "name": "Yaprak Kanat",
-              "description": "Özel baharat harcımızla marine edilmiş, meşe kömürü ateşinde nar gibi kızarmış taze yaprak kanatlar.",
-              "offers": { "@type": "Offer", "price": "345", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Adana Kebap",
-              "description": "Zırhta çekilmiş acılı kıyma harcından, kömür ateşinde ustalıkla pişirilen nefis Adana kebap.",
-              "offers": { "@type": "Offer", "price": "445", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Urfa Kebap",
-              "description": "Özel baharatlarla harmanlanmış acısız kıyma harcından, köz ateşinde pişen lezzetli Urfa kebap.",
-              "offers": { "@type": "Offer", "price": "445", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Musab Tavuk Köfte",
-              "description": "Geleneksel tarifimize sadık kalarak, %100 tavuk etinden hazırlanan sulu ve lezzetli ızgara köfteler.",
-              "offers": { "@type": "Offer", "price": "445", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Tavuk Izgara",
-              "description": "Özenle marine edilmiş, lokum kıvamında taze tavuk etlerinin mangalda eşsiz buluşması.",
-              "offers": { "@type": "Offer", "price": "345", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Patates Kızartması",
-              "description": "Sıcak ve çıtır çıtır servis edilen altın sarısı patates kızartması.",
-              "offers": { "@type": "Offer", "price": "85", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Taze Çoban Salata",
-              "description": "Günlük doğranan taze domates, salatalık, biber, maydanoz ve sızma zeytinyağlı salata.",
-              "offers": { "@type": "Offer", "price": "85", "priceCurrency": "TRY" }
-            }
-          ]
+          "@type": "MenuPage",
+          "@id": "https://musabkanat.com/menu.html#webpage",
+          "url": "https://musabkanat.com/menu.html",
+          "name": "Menü & Fiyat Listesi | Musab Kanat Izgara Aydın Efeler",
+          "description": "Musab Kanat Izgara güncel menü ve fiyat listesi. Özel soslu kanat, Adana & Urfa kebap, köfte, tatlılar ve soğuk içecek çeşitlerimizi inceleyin.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://musabkanat.com/#website",
+            "name": "Musab Kanat Izgara",
+            "url": "https://musabkanat.com/"
+          },
+          "about": {
+            "@id": "https://musabkanat.com/#restaurant"
+          },
+          "mainEntity": {
+            "@type": "Menu",
+            "@id": "https://musabkanat.com/menu.html#menu",
+            "name": "Musab Kanat Izgara Menüsü",
+            "url": "https://musabkanat.com/menu.html",
+            "hasMenuSection": [
+              {
+                "@type": "MenuSection",
+                "name": "Izgaralar & Ana Yemekler",
+                "hasMenuItem": [
+                  {
+                    "@type": "MenuItem",
+                    "name": "Yaprak Kanat",
+                    "description": "Özel baharat harcımızla marine edilmiş, meşe kömürü ateşinde nar gibi kızarmış taze yaprak kanatlar.",
+                    "offers": { "@type": "Offer", "price": "345", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Adana Kebap",
+                    "description": "Zırhta çekilmiş acılı kıyma harcından, kömür ateşinde ustalıkla pişirilen nefis Adana kebap.",
+                    "offers": { "@type": "Offer", "price": "445", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Urfa Kebap",
+                    "description": "Özel baharatlarla harmanlanmış acısız kıyma harcından, köz ateşinde pişen lezzetli Urfa kebap.",
+                    "offers": { "@type": "Offer", "price": "445", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Musab Tavuk Köfte",
+                    "description": "Geleneksel tarifimize sadık kalarak, %100 tavuk etinden hazırlanan sulu ve lezzetli ızgara köfteler.",
+                    "offers": { "@type": "Offer", "price": "445", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Tavuk Izgara",
+                    "description": "Özenle marine edilmiş, lokum kıvamında taze tavuk etlerinin mangalda eşsiz buluşması.",
+                    "offers": { "@type": "Offer", "price": "345", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Patates Kızartması",
+                    "description": "Sıcak ve çıtır çıtır servis edilen altın sarısı patates kızartması.",
+                    "offers": { "@type": "Offer", "price": "85", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Taze Çoban Salata",
+                    "description": "Günlük doğranan taze domates, salatalık, biber, maydanoz ve sızma zeytinyağlı salata.",
+                    "offers": { "@type": "Offer", "price": "85", "priceCurrency": "TRY" }
+                  }
+                ]
+              },
+              {
+                "@type": "MenuSection",
+                "name": "Tatlılar",
+                "hasMenuItem": [
+                  {
+                    "@type": "MenuItem",
+                    "name": "Kazan Dibi",
+                    "description": "Karamelize edilmiş nefis tabanı ve sütlü hafif lezzetiyle klasik kazandibi.",
+                    "offers": { "@type": "Offer", "price": "100", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Kemal Paşa Tatlısı",
+                    "description": "Tam kıvamında şerbeti ve yanında sunumuyla nefis Kemalpaşa tatlısı.",
+                    "offers": { "@type": "Offer", "price": "100", "priceCurrency": "TRY" }
+                  }
+                ]
+              },
+              {
+                "@type": "MenuSection",
+                "name": "İçecekler",
+                "hasMenuItem": [
+                  {
+                    "@type": "MenuItem",
+                    "name": "Kutu & Cam İçecekler (Kola, Fanta, Sprite)",
+                    "offers": { "@type": "Offer", "price": "70", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Fuse Tea Soğuk Çay",
+                    "offers": { "@type": "Offer", "price": "70", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Cappy Meyve Suları",
+                    "offers": { "@type": "Offer", "price": "60", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Köpüklü Yayık Ayran",
+                    "offers": { "@type": "Offer", "price": "60", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Adana Şalgam Suyu",
+                    "offers": { "@type": "Offer", "price": "45", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Maden Suyu (Soda)",
+                    "offers": { "@type": "Offer", "price": "40", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Demleme Çay",
+                    "offers": { "@type": "Offer", "price": "20", "priceCurrency": "TRY" }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Su",
+                    "offers": { "@type": "Offer", "price": "20", "priceCurrency": "TRY" }
+                  }
+                ]
+              }
+            ]
+          }
         },
         {
-          "@type": "MenuSection",
-          "name": "Tatlılar",
-          "hasMenuItem": [
+          "@type": "BreadcrumbList",
+          "@id": "https://musabkanat.com/menu.html#breadcrumb",
+          "itemListElement": [
             {
-              "@type": "MenuItem",
-              "name": "Kazan Dibi",
-              "description": "Karamelize edilmiş nefis tabanı ve sütlü hafif lezzetiyle klasik kazandibi.",
-              "offers": { "@type": "Offer", "price": "100", "priceCurrency": "TRY" }
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://musabkanat.com/"
             },
             {
-              "@type": "MenuItem",
-              "name": "Kemal Paşa Tatlısı",
-              "description": "Tam kıvamında şerbeti ve yanında sunumuyla nefis Kemalpaşa tatlısı.",
-              "offers": { "@type": "Offer", "price": "100", "priceCurrency": "TRY" }
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menü",
+              "item": "https://musabkanat.com/menu.html"
             }
           ]
-        },
-        {
-          "@type": "MenuSection",
-          "name": "İçecekler",
-          "hasMenuItem": [
-            {
-              "@type": "MenuItem",
-              "name": "Kutu & Cam İçecekler (Kola, Fanta, Sprite)",
-              "offers": { "@type": "Offer", "price": "70", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Fuse Tea Soğuk Çay",
-              "offers": { "@type": "Offer", "price": "70", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Cappy Meyve Suları",
-              "offers": { "@type": "Offer", "price": "60", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Köpüklü Yayık Ayran",
-              "offers": { "@type": "Offer", "price": "60", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Adana Şalgam Suyu",
-              "offers": { "@type": "Offer", "price": "45", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Maden Suyu (Soda)",
-              "offers": { "@type": "Offer", "price": "40", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Demleme Çay",
-              "offers": { "@type": "Offer", "price": "20", "priceCurrency": "TRY" }
-            },
-            {
-              "@type": "MenuItem",
-              "name": "Su",
-              "offers": { "@type": "Offer", "price": "20", "priceCurrency": "TRY" }
-            }
-          ]
-        }
-      ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Ana Sayfa",
-          "item": "https://musabkanat.com/index.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Menü",
-          "item": "https://musabkanat.com/menu.html"
         }
       ]
     }
@@ -207,7 +226,7 @@
             <div class="container">
                 <div class="section-header text-center reveal-up">
                     <span class="section-subtitle">Lezzet Listemiz</span>
-                    <h2 class="section-title">Nefis Menümüz</h2>
+                    <h1 class="section-title">Nefis Menümüz</h1>
                     <p style="max-width: 650px; margin: 15px auto 0; color: #666; font-size: 1.05rem;">
                         Kömür ateşinde usul usul pişen ızgara çeşitlerimizi, ev yapımı tatlılarımızı ve ferahlatıcı içeceklerimizi keşfedin.
                     </p>
