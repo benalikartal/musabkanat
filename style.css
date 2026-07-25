@@ -545,15 +545,68 @@ img {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(10px);
     color: var(--color-black-brown);
     padding: 8px 18px;
-    border-radius: var(--radius-base) ;
+    border-radius: 30px;
     font-weight: 700;
     font-size: 1.15rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
     z-index: 2;
+}
+
+.menu-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(46, 30, 23, 0.85);
+    backdrop-filter: blur(10px);
+    color: #FDF8F5;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.5px;
+}
+
+.menu-categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 35px 0 45px 0;
+}
+
+.category-tab {
+    background: var(--color-white);
+    color: var(--color-black-brown);
+    border: 1px solid rgba(46, 30, 23, 0.12);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.category-tab:hover,
+.category-tab.active {
+    background: var(--color-light-brown);
+    color: var(--color-white);
+    border-color: var(--color-light-brown);
+    box-shadow: 0 8px 20px rgba(196, 139, 88, 0.35);
+    transform: translateY(-2px);
+}
+
+.menu-card {
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
 
 .placeholder-wrapper {

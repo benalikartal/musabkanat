@@ -202,6 +202,38 @@ revealElements.forEach(el => {
     revealObserver.observe(el);
 });
 
+// 5. Menu Category Filter Tabs
+const categoryTabs = document.querySelectorAll('.category-tab');
+const menuCards = document.querySelectorAll('.menu-card');
+
+if (categoryTabs.length > 0 && menuCards.length > 0) {
+    categoryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            categoryTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const filter = tab.getAttribute('data-filter');
+
+            menuCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    card.style.display = 'flex';
+                    requestAnimationFrame(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0) scale(1)';
+                    });
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(10px) scale(0.96)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
 
 
 
