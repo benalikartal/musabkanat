@@ -15,7 +15,7 @@ const envSchema = z.object({
   DATABASE_URL: z.string().min(1, 'DATABASE_URL is required').default('postgresql://musab_user:musab_password@localhost:5432/musabkanat_db?schema=public'),
   JWT_SECRET: z.string().min(16, 'JWT_SECRET must be at least 16 characters').default('musab-kanat-default-jwt-secret-key-development-mode-only'),
   JWT_EXPIRES_IN: z.string().default('7d'),
-  CORS_ORIGIN: z.string().default('http://localhost:3000,http://127.0.0.1:3000'),
+  CORS_ORIGIN: z.string().default('*'),
   ADMIN_NAME: z.string().default('Musab Admin'),
   ADMIN_EMAIL: z.string().email().default('admin@musabkanat.com'),
   ADMIN_PHONE: z.string().default('+905552194353'),

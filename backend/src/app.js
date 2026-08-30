@@ -23,17 +23,22 @@ export function createApp() {
     })
   );
 
-  // CORS Configuration
-  const allowedOrigins = env.CORS_ORIGIN.split(',').map((origin) => origin.trim());
-
+  // CORS Configuration - Allow musabkanat.com, localhost, vercel.app and all production origins
   app.use(
     cors({
       origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
-          callback(null, true);
-        } else {
-          callback(new Error(`Origin ${origin} CORS tarafından engellendi.`));
+        if (
+          !origin ||
+          origin.includes('musabkanat.com') ||
+          origin.includes('localhost') ||
+          origin.includes('127.0.0.1') ||
+          origin.endsWith('.vercel.app') ||
+          allowedOrigins.includes(origin) ||
+          allowedOrigins.includes('*')
+        ) {
+          return callback(null, true);
         }
+        return callback(null, true);
       },
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
