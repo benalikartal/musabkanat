@@ -1,0 +1,24 @@
+# ========================================================
+# Musab Kanat Izgara - Apache / cPanel / LiteSpeed Config
+# ========================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Reverse Proxy /api/* to local Node.js backend port 4000
+    RewriteCond %{REQUEST_URI} ^/api/ [NC]
+    RewriteRule ^api/(.*)$ http://127.0.0.1:4000/api/$1 [P,L]
+
+    # 2. HTML5 Clean URLs Fallback
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# Security & CORS Headers
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+</IfModule>
