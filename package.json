@@ -1,0 +1,28 @@
+{
+  "name": "musabkanat-fullstack",
+  "version": "1.0.0",
+  "description": "Musab Kanat Izgara Fullstack Web App for Vercel Deployment",
+  "main": "api/index.js",
+  "type": "module",
+  "scripts": {
+    "postinstall": "prisma generate --schema=backend/prisma/schema.prisma",
+    "build": "prisma generate --schema=backend/prisma/schema.prisma",
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.4.1",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "pino": "^9.6.0",
+    "prisma": "^6.4.1",
+    "zod": "^3.24.2"
+  }
+}
