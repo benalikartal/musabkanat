@@ -1,12 +1,12 @@
 import { verifyToken } from '../utils/jwt.js';
 import { prisma } from '../config/db.js';
 import { sendError } from '../utils/response.js';
+import { fallbackStore } from '../services/fallbackStore.js';
 
 export async function requireAuth(req, res, next) {
   try {
     let token = null;
 
-    // Check cookies first
     if (req.cookies && req.cookies.token) {
       token = req.cookies.token;
     } else if (req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
@@ -22,19 +22,29 @@ export async function requireAuth(req, res, next) {
       return sendError(res, 401, 'INVALID_TOKEN', 'Geçersiz veya süresi dolmuş oturum.');
     }
 
-    const user = await prisma.user.findUnique({
-      where: { id: payload.id },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        phone: true,
-        role: true,
-        isActive: true,
-        createdAt: true,
-        updatedAt: true
-      }
-    });
+    let user = null;
+
+    try {
+      user = await prisma.user.findUnique({
+        where: { id: payload.id },
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          phone: true,
+          role: true,
+          isActive: true,
+          createdAt: true,
+          updatedAt: true
+        }
+      });
+    } catch (e) {
+      user = fallbackStore.users.find((u) => u.id === payload.id);
+    }
+
+    if (!user) {
+      user = fallbackStore.users.find((u) => u.id === payload.id);
+    }
 
     if (!user || !user.isActive) {
       return sendError(res, 401, 'ACCOUNT_INACTIVE', 'Kullanıcı hesabı bulunamadı veya pasif durumda.');
@@ -66,17 +76,22 @@ export async function optionalAuth(req, res, next) {
     if (token) {
       const payload = verifyToken(token);
       if (payload && payload.id) {
-        const user = await prisma.user.findUnique({
-          where: { id: payload.id },
-          select: {
-            id: true,
-            name: true,
-            email: true,
-            phone: true,
-            role: true,
-            isActive: true
-          }
-        });
+        let user = null;
+        try {
+          user = await prisma.user.findUnique({
+            where: { id: payload.id },
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              phone: true,
+              role: true,
+              isActive: true
+            }
+          });
+        } catch (e) {
+          user = fallbackStore.users.find((u) => u.id === payload.id);
+        }
         if (user && user.isActive) {
           req.user = user;
         }
