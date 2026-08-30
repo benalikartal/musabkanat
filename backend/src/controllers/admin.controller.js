@@ -133,7 +133,7 @@ export async function updateSettings(req, res, next) {
 // Gallery
 export async function getGallery(req, res, next) {
   try {
-    const items = await adminService.getGalleryItems(true);
+    const items = await adminService.getGalleryItems(false);
     return sendSuccess(res, { items });
   } catch (error) {
     next(error);

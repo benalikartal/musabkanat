@@ -320,12 +320,16 @@ export async function updateMenuItem(id, data) {
 
 export async function deleteMenuItem(id) {
   try {
-    return await prisma.menuItem.update({ where: { id }, data: { isActive: false } });
+    return await prisma.menuItem.delete({ where: { id } });
   } catch (e) {
-    const item = fallbackStore.menuItems.find((m) => m.id === id);
-    if (!item) throw new Error('Menü ürünü bulunamadı.');
-    item.isActive = false;
-    return item;
+    try {
+      return await prisma.menuItem.update({ where: { id }, data: { isActive: false } });
+    } catch (e2) {}
+    const index = fallbackStore.menuItems.findIndex((m) => m.id === id);
+    if (index !== -1) {
+      fallbackStore.menuItems.splice(index, 1);
+    }
+    return { success: true };
   }
 }
 
@@ -412,12 +416,16 @@ export async function updateGalleryItem(id, data) {
 
 export async function deleteGalleryItem(id) {
   try {
-    return await prisma.galleryItem.update({ where: { id }, data: { isActive: false } });
+    return await prisma.galleryItem.delete({ where: { id } });
   } catch (e) {
-    const item = fallbackStore.gallery.find((g) => g.id === id);
-    if (!item) throw new Error('Galeri görseli bulunamadı.');
-    item.isActive = false;
-    return item;
+    try {
+      return await prisma.galleryItem.update({ where: { id }, data: { isActive: false } });
+    } catch (e2) {}
+    const index = fallbackStore.gallery.findIndex((g) => g.id === id);
+    if (index !== -1) {
+      fallbackStore.gallery.splice(index, 1);
+    }
+    return { success: true };
   }
 }
 
