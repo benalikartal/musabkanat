@@ -204,17 +204,17 @@ revealElements.forEach(el => {
 
 // 5. Menu Category Filter Tabs
 const categoryTabs = document.querySelectorAll('.category-tab');
-const menuCards = document.querySelectorAll('.menu-card');
 
-if (categoryTabs.length > 0 && menuCards.length > 0) {
+if (categoryTabs.length > 0) {
     categoryTabs.forEach(tab => {
         tab.addEventListener('click', () => {
             categoryTabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
 
             const filter = tab.getAttribute('data-filter');
+            const liveCards = document.querySelectorAll('.menu-card');
 
-            menuCards.forEach(card => {
+            liveCards.forEach(card => {
                 const category = card.getAttribute('data-category');
                 if (filter === 'all' || category === filter) {
                     card.style.display = 'flex';
