@@ -44,4 +44,7 @@ router.post('/gallery', adminController.createGalleryItem);
 router.patch('/gallery/:id', adminController.updateGalleryItem);
 router.delete('/gallery/:id', adminController.deleteGalleryItem);
 
+// Image Upload from PC
+router.post('/upload', adminController.uploadImage);
+
 export default router;

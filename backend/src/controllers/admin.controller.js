@@ -169,3 +169,7 @@ export async function deleteGalleryItem(req, res, next) {
   }
 }
 
+export { uploadImage } from './upload.controller.js';
+
+
+
