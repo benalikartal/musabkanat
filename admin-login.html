@@ -107,14 +107,15 @@
             cursor: not-allowed;
         }
         .error-message {
-            background: rgba(217, 83, 79, 0.2);
-            border: 1px solid rgba(217, 83, 79, 0.5);
+            background: rgba(217, 83, 79, 0.25);
+            border: 1px solid rgba(217, 83, 79, 0.6);
             color: #ff8a80;
-            padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 0.88rem;
             margin-bottom: 20px;
             display: none;
+            line-height: 1.4;
         }
         .back-link {
             text-align: center;
@@ -170,29 +171,37 @@
 
     <script>
         const API_BASE = window.location.port === '3000' ? 'http://localhost:4000/api' : '/api';
-
-        // Check if already authenticated
-        fetch(`${API_BASE}/auth/me`, { credentials: 'include' })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success && data.user && data.user.role === 'ADMIN') {
-                    window.location.href = 'admin.html';
-                }
-            })
-            .catch(() => {});
-
         const loginForm = document.getElementById('loginForm');
         const errorMessage = document.getElementById('errorMessage');
         const submitBtn = document.getElementById('submitBtn');
 
+        function showError(msg) {
+            errorMessage.textContent = msg;
+            errorMessage.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Giriş Yap';
+        }
+
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             errorMessage.style.display = 'none';
+
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            // Strict frontend check: ensure user actually typed credentials
+            if (!email || !password) {
+                showError('Lütfen e-posta adresinizi ve şifrenizi eksiksiz giriniz.');
+                if (!email) emailInput.focus();
+                else passwordInput.focus();
+                return;
+            }
+
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Giriş yapılıyor...';
-
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
 
             try {
                 const res = await fetch(`${API_BASE}/auth/login`, {
@@ -205,27 +214,18 @@
                 const data = await res.json();
 
                 if (res.ok && data.success) {
-                    if (data.user.role !== 'ADMIN') {
-                        errorMessage.textContent = 'Bu panele yalnızca yöneticiler erişebilir.';
-                        errorMessage.style.display = 'block';
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Giriş Yap';
+                    if (!data.user || data.user.role !== 'ADMIN') {
+                        showError('Bu panele yalnızca yönetici yetkisine sahip kullanıcılar giriş yapabilir.');
                         return;
                     }
 
-                    // Success - redirect to admin panel
+                    // Successful login -> Redirect to admin panel
                     window.location.href = 'admin.html';
                 } else {
-                    errorMessage.textContent = data.error?.message || 'Giriş başarısız. Lütfen bilgilerinizi kontrol edin.';
-                    errorMessage.style.display = 'block';
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Giriş Yap';
+                    showError(data.error?.message || 'E-posta veya şifre hatalı. Lütfen tekrar deneyiniz.');
                 }
             } catch (err) {
-                errorMessage.textContent = 'Sunucuya bağlanılamadı. Lütfen backend servisinin çalıştığından emin olun.';
-                errorMessage.style.display = 'block';
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Giriş Yap';
+                showError('Sunucuya bağlanılamadı. Lütfen backend servisinin çalıştığından emin olun.');
             }
         });
     </script>
