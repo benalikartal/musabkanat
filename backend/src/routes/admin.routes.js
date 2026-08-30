@@ -38,4 +38,10 @@ router.delete('/menu/items/:id', adminController.deleteMenuItem);
 router.get('/settings', adminController.getSettings);
 router.patch('/settings', validateBody(batchUpdateSettingsSchema), adminController.updateSettings);
 
+// Gallery
+router.get('/gallery', adminController.getGallery);
+router.post('/gallery', adminController.createGalleryItem);
+router.patch('/gallery/:id', adminController.updateGalleryItem);
+router.delete('/gallery/:id', adminController.deleteGalleryItem);
+
 export default router;

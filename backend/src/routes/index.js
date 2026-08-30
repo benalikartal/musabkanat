@@ -5,6 +5,7 @@ import menuRoutes from './menu.routes.js';
 import orderRoutes from './order.routes.js';
 import adminRoutes from './admin.routes.js';
 import settingRoutes from './setting.routes.js';
+import galleryRoutes from './gallery.routes.js';
 
 const router = Router();
 
@@ -14,5 +15,6 @@ router.use('/menu', menuRoutes);
 router.use('/orders', orderRoutes);
 router.use('/admin', adminRoutes);
 router.use('/settings', settingRoutes);
+router.use('/gallery', galleryRoutes);
 
 export default router;

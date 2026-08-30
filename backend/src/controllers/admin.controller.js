@@ -129,3 +129,43 @@ export async function updateSettings(req, res, next) {
     next(error);
   }
 }
+
+// Gallery
+export async function getGallery(req, res, next) {
+  try {
+    const items = await adminService.getGalleryItems(true);
+    return sendSuccess(res, { items });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function createGalleryItem(req, res, next) {
+  try {
+    const item = await adminService.createGalleryItem(req.body);
+    return sendSuccess(res, { item }, 201, 'Fotoğraf galeriye eklendi.');
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function updateGalleryItem(req, res, next) {
+  try {
+    const { id } = req.params;
+    const item = await adminService.updateGalleryItem(id, req.body);
+    return sendSuccess(res, { item }, 200, 'Galeri fotoğrafı güncellendi.');
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function deleteGalleryItem(req, res, next) {
+  try {
+    const { id } = req.params;
+    await adminService.deleteGalleryItem(id);
+    return sendSuccess(res, {}, 200, 'Fotoğraf galeriden silindi.');
+  } catch (error) {
+    next(error);
+  }
+}
+

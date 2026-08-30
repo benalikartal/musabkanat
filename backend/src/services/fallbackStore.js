@@ -223,6 +223,45 @@ export const fallbackStore = {
     }
   ],
 
+  gallery: [
+    {
+      id: 'gal-1',
+      title: 'Kömür ateşinde enfes yaprak kanat',
+      imageUrl: 'images/gallery1.jpg',
+      sortOrder: 1,
+      isActive: true,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      id: 'gal-2',
+      title: 'Aydın Efeler meşe kömürü ateşi',
+      imageUrl: 'images/gallery2.jpg',
+      sortOrder: 2,
+      isActive: true,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      id: 'gal-3',
+      title: 'Karışık ızgara ve köfte ziyafeti',
+      imageUrl: 'images/gallery3.jpg',
+      sortOrder: 3,
+      isActive: true,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      id: 'gal-4',
+      title: 'Özel kasap köfte ızgara servisi',
+      imageUrl: 'images/gallery4.jpg',
+      sortOrder: 4,
+      isActive: true,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+  ],
+
   orders: [
     {
       id: 'order-demo-1',

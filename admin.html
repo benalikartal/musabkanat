@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Admin Paneli | Musab Kanat Izgara</title>
+    <title>Yönetim Paneli | Musab Kanat Izgara</title>
     <link rel="icon" type="image/png" href="images/musab_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
@@ -12,7 +12,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f6f9;
+            background-color: #f8f9fa;
             color: #333;
             display: flex;
             height: 100vh;
@@ -21,21 +21,31 @@
         
         /* Sidebar */
         .sidebar {
-            width: 250px;
+            width: 260px;
             background-color: #2E1E17;
             color: #fff;
             display: flex;
             flex-direction: column;
             transition: all 0.3s ease;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            z-index: 10;
         }
         .sidebar-header {
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .sidebar-header img {
+            height: 38px;
         }
         .sidebar-header h2 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #C48B58;
+            font-weight: 600;
         }
         .sidebar-menu {
             list-style: none;
@@ -45,38 +55,65 @@
         .sidebar-menu li a {
             display: flex;
             align-items: center;
-            padding: 15px 25px;
+            padding: 16px 25px;
             color: rgba(255,255,255,0.7);
             text-decoration: none;
-            transition: 0.3s;
+            transition: 0.25s;
+            font-weight: 500;
+            font-size: 0.95rem;
         }
         .sidebar-menu li a:hover, .sidebar-menu li a.active {
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(196, 139, 88, 0.15);
             color: #fff;
             border-left: 4px solid #C48B58;
         }
         .sidebar-menu li a i {
-            margin-right: 15px;
+            margin-right: 14px;
             width: 20px;
             text-align: center;
+            font-size: 1.1rem;
+            color: #C48B58;
         }
-        
+        .sidebar-bottom {
+            padding: 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .sidebar-bottom a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 10px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            transition: 0.2s;
+        }
+        .sidebar-bottom a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
         /* Main Content */
         .main-content {
             flex: 1;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
         
         /* Top Header */
         .top-header {
             background-color: #fff;
             height: 70px;
-            padding: 0 30px;
+            padding: 0 35px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            z-index: 5;
         }
         .user-info {
             display: flex;
@@ -87,80 +124,304 @@
             background-color: #ffeaea;
             color: #d9534f;
             border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 9px 18px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.85rem;
             transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .logout-btn:hover {
             background-color: #d9534f;
             color: #fff;
         }
-        
-        /* Dashboard Area */
+
+        /* Content Area */
         .dashboard-area {
-            padding: 30px;
+            padding: 30px 35px;
             overflow-y: auto;
             flex: 1;
         }
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
         .page-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.6rem;
             color: #2E1E17;
+            font-weight: 700;
         }
-        
-        .empty-state {
-            background-color: #fff;
+        .btn-primary {
+            background-color: #C48B58;
+            color: white;
+            border: none;
+            padding: 11px 20px;
             border-radius: 8px;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            margin-top: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(196,139,88,0.3);
         }
-        .empty-state i {
-            font-size: 4rem;
-            color: #e0e0e0;
-            margin-bottom: 20px;
-        }
-        .empty-state h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .empty-state p {
-            color: #777;
+        .btn-primary:hover {
+            background-color: #b07845;
+            transform: translateY(-1px);
         }
 
-        .status-badge {
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .filter-tab {
+            padding: 8px 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #666;
+            transition: 0.2s;
+        }
+        .filter-tab.active, .filter-tab:hover {
+            background: #2E1E17;
+            color: #fff;
+            border-color: #2E1E17;
+        }
+
+        /* Table Card */
+        .table-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+            border: 1px solid #eaeaea;
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th {
+            padding: 16px 20px;
+            background-color: #fafafa;
+            color: #555;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-bottom: 2px solid #eee;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+            font-size: 0.9rem;
+        }
+        tr:hover td {
+            background-color: #fdfdfd;
+        }
+
+        .img-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .price-badge {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #C48B58;
+        }
+
+        .tag-badge {
             display: inline-block;
             padding: 4px 10px;
+            background: #fdf3ea;
+            color: #C48B58;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
         }
-        .status-select {
-            padding: 5px 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            font-size: 0.85rem;
-            font-family: inherit;
-            background: #fff;
+
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
             cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-right: 6px;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-edit {
+            background-color: #e8f4fd;
+            color: #0275d8;
+        }
+        .btn-edit:hover {
+            background-color: #0275d8;
+            color: #fff;
+        }
+        .btn-delete {
+            background-color: #fde8e8;
+            color: #d9534f;
+        }
+        .btn-delete:hover {
+            background-color: #d9534f;
+            color: #fff;
         }
 
+        /* Gallery Grid View */
+        .gallery-admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 22px;
+        }
+        .gallery-admin-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+        .gallery-admin-card:hover {
+            transform: translateY(-3px);
+        }
+        .gallery-admin-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .gallery-admin-body {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+        }
+        .modal-card {
+            background: #fff;
+            width: 100%;
+            max-width: 520px;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .modal-title {
+            font-size: 1.3rem;
+            color: #2E1E17;
+            font-weight: 700;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #999;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 6px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            border-color: #C48B58;
+            box-shadow: 0 0 0 2px rgba(196,139,88,0.2);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        .btn-cancel {
+            padding: 10px 18px;
+            background: #eee;
+            color: #555;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Toast */
         .toast-notification {
             position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #25d366;
+            bottom: 25px;
+            right: 25px;
+            background: #2E1E17;
+            border-left: 4px solid #C48B58;
             color: white;
-            padding: 14px 28px;
-            font-weight: bold;
-            border-radius: 30px;
+            padding: 15px 25px;
+            font-weight: 500;
+            border-radius: 8px;
             z-index: 999999;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            animation: slideDown 0.4s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            animation: slideInUp 0.3s ease;
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
@@ -169,16 +430,15 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <h2>Admin Panel</h2>
+            <img src="images/musab_logo.png" alt="Musab Kanat Logo">
+            <h2>Admin Paneli</h2>
         </div>
         <ul class="sidebar-menu">
-            <li><a href="#" onclick="showSection('orders')" id="menu-orders" class="active"><i class="fas fa-shopping-bag"></i> Siparişler</a></li>
-            <li><a href="#" onclick="showSection('users')" id="menu-users"><i class="fas fa-users"></i> Kayıtlı Kullanıcılar</a></li>
-            <li><a href="#" onclick="showSection('theme')" id="menu-theme"><i class="fas fa-paint-brush"></i> Tema Yönetimi</a></li>
-            <li><a href="menu.html" target="_blank"><i class="fas fa-utensils"></i> Menüyü Görüntüle</a></li>
+            <li><a href="#" onclick="showSection('menu')" id="nav-menu" class="active"><i class="fas fa-utensils"></i> Menü & Fiyat Yönetimi</a></li>
+            <li><a href="#" onclick="showSection('gallery')" id="nav-gallery"><i class="fas fa-images"></i> Galeri Yönetimi</a></li>
         </ul>
-        <div style="padding: 20px; text-align: center;">
-            <a href="index.html" style="color: #999; text-decoration: none; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> Siteye Dön</a>
+        <div class="sidebar-bottom">
+            <a href="index.html" target="_blank"><i class="fas fa-external-link-alt"></i> Web Sitesini Aç</a>
         </div>
     </aside>
 
@@ -187,111 +447,154 @@
         <!-- Top Header -->
         <header class="top-header">
             <div>
-                <span style="font-size: 1.2rem; font-weight: 500;">Hoş Geldiniz, <span id="adminName">Admin</span></span>
+                <span style="font-size: 1.15rem; font-weight: 600; color: #2E1E17;">Hoş Geldiniz, <span id="adminName" style="color: #C48B58;">Yönetici</span></span>
             </div>
             <div class="user-info">
                 <button class="logout-btn" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</button>
             </div>
         </header>
 
-        <!-- Dashboard Area: Orders -->
-        <div class="dashboard-area" id="ordersSection">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h1 class="page-title" style="margin-bottom: 0;">Siparişler</h1>
-                <button onclick="loadOrders()" style="background-color: #C48B58; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: 500;"><i class="fas fa-sync-alt"></i> Yenile</button>
+        <!-- Section: Menü Yönetimi -->
+        <section class="dashboard-area" id="menuSection">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Menü & Fiyat Listesi</h1>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 4px;">Tüm yemek, tatlı ve içecek fiyatlarını ve fotoğraflarını buradan güncelleyebilirsiniz.</p>
+                </div>
+                <button class="btn-primary" onclick="openMenuItemModal()"><i class="fas fa-plus"></i> Yeni Ürün Ekle</button>
             </div>
-            
-            <div style="background-color: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; text-align: left;" id="ordersTable">
+
+            <!-- Category Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" onclick="filterMenuCategory('all', this)">Tüm Ürünler</button>
+                <button class="filter-tab" onclick="filterMenuCategory('izgara', this)">Izgaralar & Yemekler</button>
+                <button class="filter-tab" onclick="filterMenuCategory('tatli', this)">Tatlılar</button>
+                <button class="filter-tab" onclick="filterMenuCategory('icecek', this)">İçecekler</button>
+            </div>
+
+            <div class="table-card">
+                <table>
                     <thead>
-                        <tr style="background-color: #f8f9fa; border-bottom: 2px solid #eee;">
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Sipariş No</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Tarih</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Müşteri Bilgileri</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Adres</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Ödeme</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Sipariş İçeriği</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Tutar</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Durum</th>
+                        <tr>
+                            <th style="width: 80px;">Görsel</th>
+                            <th>Ürün Adı</th>
+                            <th>Kategori</th>
+                            <th>Açıklama</th>
+                            <th style="width: 120px;">Fiyat</th>
+                            <th>Etiket</th>
+                            <th style="width: 160px; text-align: right;">İşlemler</th>
                         </tr>
                     </thead>
-                    <tbody id="ordersTableBody">
+                    <tbody id="menuTableBody">
+                        <!-- Populated by JS -->
                     </tbody>
                 </table>
             </div>
-            <div id="emptyOrders" class="empty-state" style="display: none;">
-                <i class="fas fa-shopping-basket"></i>
-                <h3>Henüz Sipariş Yok</h3>
-            </div>
-        </div>
+        </section>
 
-        <!-- Dashboard Area: Users -->
-        <div class="dashboard-area" id="usersSection" style="display: none;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h1 class="page-title" style="margin-bottom: 0;">Kayıtlı Kullanıcılar</h1>
-                <button onclick="loadUsers()" style="background-color: #C48B58; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: 500;"><i class="fas fa-sync-alt"></i> Yenile</button>
+        <!-- Section: Galeri Yönetimi -->
+        <section class="dashboard-area" id="gallerySection" style="display: none;">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Galeri Fotoğrafları</h1>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 4px;">Web sitesindeki galeri sayfasında görünen fotoğrafları ekleyin veya düzenleyin.</p>
+                </div>
+                <button class="btn-primary" onclick="openGalleryModal()"><i class="fas fa-plus"></i> Yeni Fotoğraf Ekle</button>
             </div>
-            
-            <div style="background-color: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; text-align: left;" id="usersTable">
-                    <thead>
-                        <tr style="background-color: #f8f9fa; border-bottom: 2px solid #eee;">
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Kayıt Tarihi</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Ad Soyad</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">E-Posta</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Telefon</th>
-                            <th style="padding: 15px; font-weight: 600; color: #555;">Rol</th>
-                        </tr>
-                    </thead>
-                    <tbody id="usersTableBody">
-                    </tbody>
-                </table>
-            </div>
-            <div id="emptyUsersState" class="empty-state" style="display: none;">
-                <i class="fas fa-users"></i>
-                <h3>Henüz Kayıtlı Kullanıcı Yok</h3>
-            </div>
-        </div>
 
-        <!-- Dashboard Area: Theme -->
-        <div class="dashboard-area" id="themeSection" style="display: none;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h1 class="page-title" style="margin-bottom: 0;">Tema Yönetimi</h1>
+            <div class="gallery-admin-grid" id="galleryGrid">
+                <!-- Populated by JS -->
             </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
-                <div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; border: 2px solid transparent;" onclick="applyAdminTheme('classic')" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <div style="height: 100px; background: linear-gradient(135deg, #FDF8F5 50%, #4A3026 50%); border-radius: 8px; margin-bottom: 15px;"></div>
-                    <h3 style="margin-bottom: 10px; color: #333;">Klasik Tema</h3>
-                    <p style="color: #777; font-size: 0.9rem;">Orijinal krem ve kahverengi tonları. Sıcak ve davetkar.</p>
-                </div>
-                <div style="background: #121212; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); cursor: pointer; transition: 0.3s; border: 2px solid transparent;" onclick="applyAdminTheme('dark-elegance')" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <div style="height: 100px; background: linear-gradient(135deg, #1E1E1E 50%, #D4AF37 50%); border-radius: 8px; margin-bottom: 15px;"></div>
-                    <h3 style="margin-bottom: 10px; color: #FFF;">Dark Elegance</h3>
-                    <p style="color: #AAA; font-size: 0.9rem;">Koyu tonlar, altın detaylar. Premium bir gece deneyimi.</p>
-                </div>
-                <div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(211,47,47,0.1); cursor: pointer; transition: 0.3s; border: 2px solid transparent;" onclick="applyAdminTheme('spicy-red')" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <div style="height: 100px; background: linear-gradient(135deg, #D32F2F 50%, #FFC107 50%); border-radius: 8px; margin-bottom: 15px;"></div>
-                    <h3 style="margin-bottom: 10px; color: #D32F2F;">Spicy Red</h3>
-                    <p style="color: #666; font-size: 0.9rem;">Enerjik kırmızı ve sarı tonlar. Tam bir ızgara atmosferi.</p>
-                </div>
-                <div style="background: #FFF; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; border: 1px solid #EEE;" onclick="applyAdminTheme('minimalist-light')" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <div style="height: 100px; background: linear-gradient(135deg, #FFFFFF 50%, #212121 50%); border-radius: 8px; margin-bottom: 15px; border: 1px solid #EEE;"></div>
-                    <h3 style="margin-bottom: 10px; color: #000;">Minimalist Light</h3>
-                    <p style="color: #888; font-size: 0.9rem;">Ultra temiz, sade ve ferah bir tasarım dili.</p>
-                </div>
-            </div>
-        </div>
+        </section>
     </main>
+
+    <!-- Modal: Menü Ürün Ekle / Düzenle -->
+    <div class="modal-overlay" id="menuItemModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title" id="menuModalTitle">Ürünü Düzenle</h3>
+                <button class="modal-close" onclick="closeMenuItemModal()">&times;</button>
+            </div>
+            <form id="menuItemForm">
+                <input type="hidden" id="menuItemId">
+
+                <div class="form-group">
+                    <label for="itemTitle">Ürün Adı *</label>
+                    <input type="text" class="form-control" id="itemTitle" required placeholder="Örn: Yaprak Kanat">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemCategory">Kategori *</label>
+                    <select class="form-control" id="itemCategory" required>
+                        <option value="izgara">Izgaralar & Yemekler</option>
+                        <option value="tatli">Tatlılar</option>
+                        <option value="icecek">İçecekler</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemPrice">Fiyat (₺) *</label>
+                    <input type="number" step="0.5" class="form-control" id="itemPrice" required placeholder="Örn: 345">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemImageUrl">Fotoğraf Yolu / URL *</label>
+                    <input type="text" class="form-control" id="itemImageUrl" required placeholder="Örn: images/menu_wings.png">
+                    <small style="color: #777; font-size: 0.8rem; margin-top: 4px; display: block;">Mevcut dosyalardan: `images/menu_wings.png`, `images/adana.jpg`, `images/urfa_kebap.jpg`, `images/menu_kofte.png`, `images/tavuk_sis.jpg`, `images/kazandibi.jpg`, `images/kola.jpg`, `images/ayran.jpg` vb.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemBadge">Etiket (İsteğe Bağlı)</label>
+                    <input type="text" class="form-control" id="itemBadge" placeholder="Örn: Özel Soslu, Acılı Kömür Ateşi">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemDescription">Açıklama</label>
+                    <textarea class="form-control" id="itemDescription" placeholder="Özel baharat harcımızla marine edilmiş..."></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeMenuItemModal()">Vazgeç</button>
+                    <button type="submit" class="btn-primary" id="saveMenuBtn"><i class="fas fa-save"></i> Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Galeri Fotoğraf Ekle -->
+    <div class="modal-overlay" id="galleryModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Galeriye Fotoğraf Ekle</h3>
+                <button class="modal-close" onclick="closeGalleryModal()">&times;</button>
+            </div>
+            <form id="galleryForm">
+                <div class="form-group">
+                    <label for="galleryTitle">Başlık / Açıklama</label>
+                    <input type="text" class="form-control" id="galleryTitle" placeholder="Örn: Meşe kömüründe nar gibi kızaran kanatlar">
+                </div>
+
+                <div class="form-group">
+                    <label for="galleryImageUrl">Fotoğraf Yolu / URL *</label>
+                    <input type="text" class="form-control" id="galleryImageUrl" required placeholder="Örn: images/gallery1.jpg veya resim linki">
+                    <small style="color: #777; font-size: 0.8rem; margin-top: 4px; display: block;">Mevcut görseller: `images/gallery1.jpg`, `images/gallery2.jpg`, `images/gallery3.jpg`, `images/gallery4.jpg` veya web görsel linki.</small>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeGalleryModal()">Vazgeç</button>
+                    <button type="submit" class="btn-primary"><i class="fas fa-upload"></i> Galeriye Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script>
         const API_BASE = window.location.port === '3000' ? 'http://localhost:4000/api' : '/api';
-        let knownOrderNumbers = new Set();
-        let isInitialOrderLoad = true;
-        let audioUnlocked = false;
+        let allMenuItems = [];
+        let activeCategoryFilter = 'all';
 
-        // Verify Admin Auth
-        async function checkAdminAuth() {
+        // 1. Auth Check
+        async function checkAuth() {
             try {
                 const res = await fetch(`${API_BASE}/auth/me`, { credentials: 'include' });
                 if (!res.ok) {
@@ -303,28 +606,23 @@
                     window.location.href = 'admin-login.html';
                     return;
                 }
-                document.getElementById('adminName').textContent = data.user.name || 'Admin';
+                document.getElementById('adminName').textContent = data.user.name || 'Yönetici';
             } catch (err) {
                 window.location.href = 'admin-login.html';
             }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            checkAdminAuth();
-            loadOrders();
-            loadUsers();
-
-            // Poll every 10 seconds for new orders
-            setInterval(pollOrders, 10000);
+            checkAuth();
+            loadMenuItems();
+            loadGalleryItems();
         });
 
-        function showSection(section) {
-            document.getElementById('usersSection').style.display = section === 'users' ? 'block' : 'none';
-            document.getElementById('ordersSection').style.display = section === 'orders' ? 'block' : 'none';
-            document.getElementById('themeSection').style.display = section === 'theme' ? 'block' : 'none';
-            document.getElementById('menu-users').classList.toggle('active', section === 'users');
-            document.getElementById('menu-orders').classList.toggle('active', section === 'orders');
-            document.getElementById('menu-theme').classList.toggle('active', section === 'theme');
+        function showSection(sec) {
+            document.getElementById('menuSection').style.display = sec === 'menu' ? 'block' : 'none';
+            document.getElementById('gallerySection').style.display = sec === 'gallery' ? 'block' : 'none';
+            document.getElementById('nav-menu').classList.toggle('active', sec === 'menu');
+            document.getElementById('nav-gallery').classList.toggle('active', sec === 'gallery');
         }
 
         async function handleLogout() {
@@ -334,252 +632,10 @@
             window.location.href = 'admin-login.html';
         }
 
-        // Safe DOM helper to prevent XSS
-        function createEl(tag, textContent = '', className = '', styles = {}) {
-            const el = document.createElement(tag);
-            if (textContent) el.textContent = textContent;
-            if (className) el.className = className;
-            Object.assign(el.style, styles);
-            return el;
-        }
-
-        // ================= USERS =================
-        async function loadUsers() {
-            try {
-                const res = await fetch(`${API_BASE}/admin/users?limit=50`, { credentials: 'include' });
-                if (!res.ok) return;
-                const data = await res.json();
-                const users = data.users || [];
-
-                const tableBody = document.getElementById('usersTableBody');
-                const emptyState = document.getElementById('emptyUsersState');
-                const table = document.getElementById('usersTable');
-
-                tableBody.innerHTML = '';
-
-                if (users.length === 0) {
-                    emptyState.style.display = 'block';
-                    table.style.display = 'none';
-                } else {
-                    emptyState.style.display = 'none';
-                    table.style.display = 'table';
-
-                    users.forEach(user => {
-                        const tr = createEl('tr', '', '', { borderBottom: '1px solid #eee' });
-
-                        const tdDate = createEl('td', new Date(user.createdAt).toLocaleString('tr-TR'), '', { padding: '15px', color: '#777' });
-                        const tdName = createEl('td', user.name, '', { padding: '15px', fontWeight: '500' });
-                        const tdEmail = createEl('td', user.email, '', { padding: '15px', color: '#555' });
-                        const tdPhone = createEl('td', user.phone || '-', '', { padding: '15px', color: '#555' });
-                        const tdRole = createEl('td', user.role, '', { padding: '15px', fontWeight: 'bold', color: user.role === 'ADMIN' ? '#d9534f' : '#C48B58' });
-
-                        tr.appendChild(tdDate);
-                        tr.appendChild(tdName);
-                        tr.appendChild(tdEmail);
-                        tr.appendChild(tdPhone);
-                        tr.appendChild(tdRole);
-
-                        tableBody.appendChild(tr);
-                    });
-                }
-            } catch (err) {
-                console.error('Kullanıcılar yüklenirken hata:', err);
-            }
-        }
-
-        // ================= ORDERS =================
-        const STATUS_MAP = {
-            'PENDING': { label: 'Beklemede', color: '#f0ad4e' },
-            'CONFIRMED': { label: 'Onaylandı', color: '#5bc0de' },
-            'PREPARING': { label: 'Hazırlanıyor', color: '#337ab7' },
-            'READY': { label: 'Hazır', color: '#5cb85c' },
-            'OUT_FOR_DELIVERY': { label: 'Kuryede', color: '#6f42c1' },
-            'DELIVERED': { label: 'Teslim Edildi', color: '#28a745' },
-            'CANCELLED': { label: 'İptal Edildi', color: '#d9534f' }
-        };
-
-        const PAYMENT_MAP = {
-            'CASH': 'Nakit',
-            'CREDIT_CARD': 'Kredi Kartı',
-            'MEAL_CARD': 'Yemek Kartı',
-            'ONLINE': 'Online Ödeme'
-        };
-
-        async function loadOrders() {
-            try {
-                const res = await fetch(`${API_BASE}/admin/orders?limit=50`, { credentials: 'include' });
-                if (!res.ok) return;
-                const data = await res.json();
-                const orders = data.orders || [];
-
-                // Track known orders
-                orders.forEach(o => knownOrderNumbers.add(o.orderNumber));
-                isInitialOrderLoad = false;
-
-                renderOrdersTable(orders);
-            } catch (err) {
-                console.error('Siparişler yüklenirken hata:', err);
-            }
-        }
-
-        async function pollOrders() {
-            try {
-                const res = await fetch(`${API_BASE}/admin/orders?limit=20`, { credentials: 'include' });
-                if (!res.ok) return;
-                const data = await res.json();
-                const orders = data.orders || [];
-
-                let hasNew = false;
-                orders.forEach(o => {
-                    if (!knownOrderNumbers.has(o.orderNumber)) {
-                        hasNew = true;
-                        knownOrderNumbers.add(o.orderNumber);
-                    }
-                });
-
-                if (hasNew && !isInitialOrderLoad) {
-                    playNotificationSound();
-                    showVisualToast();
-                    renderOrdersTable(orders);
-                }
-            } catch (e) {}
-        }
-
-        function renderOrdersTable(orders) {
-            const tableBody = document.getElementById('ordersTableBody');
-            const emptyState = document.getElementById('emptyOrders');
-            const table = document.getElementById('ordersTable');
-
-            tableBody.innerHTML = '';
-
-            if (orders.length === 0) {
-                emptyState.style.display = 'block';
-                table.style.display = 'none';
-            } else {
-                emptyState.style.display = 'none';
-                table.style.display = 'table';
-
-                orders.forEach(order => {
-                    const tr = createEl('tr', '', '', { borderBottom: '1px solid #eee' });
-
-                    // Order Number
-                    const tdOrderNo = createEl('td', order.orderNumber, '', { padding: '15px', fontWeight: 'bold', color: '#2E1E17' });
-
-                    // Date
-                    const tdDate = createEl('td', new Date(order.createdAt).toLocaleString('tr-TR'), '', { padding: '15px', color: '#777', fontSize: '0.85rem' });
-
-                    // Customer Info
-                    const tdCustomer = createEl('td', '', '', { padding: '15px' });
-                    const nameDiv = createEl('div', order.customerName, '', { fontWeight: '500' });
-                    const phoneDiv = createEl('div', order.phone, '', { color: '#777', fontSize: '0.85rem' });
-                    tdCustomer.appendChild(nameDiv);
-                    tdCustomer.appendChild(phoneDiv);
-                    if (order.customerNote) {
-                        const noteDiv = createEl('div', `Not: ${order.customerNote}`, '', { color: '#d9534f', fontSize: '0.8rem', fontStyle: 'italic', marginTop: '4px' });
-                        tdCustomer.appendChild(noteDiv);
-                    }
-
-                    // Address
-                    const tdAddress = createEl('td', '', '', { padding: '15px' });
-                    const addrDiv = createEl('div', order.address, '', { fontSize: '0.85rem', color: '#555', maxWidth: '200px' });
-                    tdAddress.appendChild(addrDiv);
-
-                    // Payment
-                    const tdPayment = createEl('td', '', '', { padding: '15px' });
-                    const payBadge = createEl('span', PAYMENT_MAP[order.paymentMethod] || order.paymentMethod, '', {
-                        display: 'inline-block',
-                        padding: '3px 8px',
-                        background: '#e9ecef',
-                        borderRadius: '4px',
-                        fontSize: '0.8rem',
-                        fontWeight: 'bold'
-                    });
-                    tdPayment.appendChild(payBadge);
-
-                    // Items
-                    const tdItems = createEl('td', '', '', { padding: '15px', fontSize: '0.85rem', color: '#555', maxWidth: '220px' });
-                    if (order.items && order.items.length > 0) {
-                        order.items.forEach(item => {
-                            const itemLine = createEl('div', `• ${item.quantity}x ${item.titleSnapshot} (${item.unitPrice} ₺)`, '', { marginBottom: '3px' });
-                            if (item.note) {
-                                const itemNote = createEl('span', ` - ${item.note}`, '', { color: '#999', fontSize: '0.75rem' });
-                                itemLine.appendChild(itemNote);
-                            }
-                            tdItems.appendChild(itemLine);
-                        });
-                    }
-
-                    // Total
-                    const tdTotal = createEl('td', `${order.total} ₺`, '', { padding: '15px', fontWeight: 'bold', color: '#C48B58', fontSize: '1.1rem' });
-
-                    // Status Dropdown
-                    const tdStatus = createEl('td', '', '', { padding: '15px' });
-                    const select = document.createElement('select');
-                    select.className = 'status-select';
-
-                    Object.keys(STATUS_MAP).forEach(statusKey => {
-                        const opt = document.createElement('option');
-                        opt.value = statusKey;
-                        opt.textContent = STATUS_MAP[statusKey].label;
-                        if (order.status === statusKey) opt.selected = true;
-                        select.appendChild(opt);
-                    });
-
-                    select.addEventListener('change', async (e) => {
-                        const newStatus = e.target.value;
-                        try {
-                            const patchRes = await fetch(`${API_BASE}/admin/orders/${order.id}/status`, {
-                                method: 'PATCH',
-                                headers: { 'Content-Type': 'application/json' },
-                                credentials: 'include',
-                                body: JSON.stringify({ status: newStatus })
-                            });
-                            if (patchRes.ok) {
-                                showToast('Sipariş durumu güncellendi!');
-                            } else {
-                                alert('Durum güncellenirken bir hata oluştu.');
-                            }
-                        } catch (err) {
-                            alert('Sunucu bağlantı hatası.');
-                        }
-                    });
-
-                    tdStatus.appendChild(select);
-
-                    // Append cells
-                    tr.appendChild(tdOrderNo);
-                    tr.appendChild(tdDate);
-                    tr.appendChild(tdCustomer);
-                    tr.appendChild(tdAddress);
-                    tr.appendChild(tdPayment);
-                    tr.appendChild(tdItems);
-                    tr.appendChild(tdTotal);
-                    tr.appendChild(tdStatus);
-
-                    tableBody.appendChild(tr);
-                });
-            }
-        }
-
-        // ================= THEME =================
-        async function applyAdminTheme(themeName) {
-            try {
-                await fetch(`${API_BASE}/admin/settings`, {
-                    method: 'PATCH',
-                    headers: { 'Content-Type': 'application/json' },
-                    credentials: 'include',
-                    body: JSON.stringify({ active_theme: { theme: themeName } })
-                });
-                showToast(`"${themeName}" teması kaydedildi!`);
-            } catch (e) {
-                showToast('Tema kaydedildi!');
-            }
-        }
-
         function showToast(msg) {
             const toast = document.createElement('div');
-            toast.textContent = msg;
             toast.className = 'toast-notification';
+            toast.textContent = msg;
             document.body.appendChild(toast);
             setTimeout(() => {
                 toast.style.opacity = '0';
@@ -588,66 +644,321 @@
             }, 3000);
         }
 
-        // Audio Unlock
-        document.body.addEventListener('click', function() {
-            if (!audioUnlocked) {
-                audioUnlocked = true;
-                const unlockBanner = document.getElementById('audioUnlockBanner');
-                if (unlockBanner) unlockBanner.style.display = 'none';
-                try {
-                    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                    const osc = ctx.createOscillator();
-                    osc.frequency.value = 400;
-                    const gain = ctx.createGain();
-                    gain.gain.value = 0;
-                    osc.connect(gain);
-                    gain.connect(ctx.destination);
-                    osc.start();
-                    osc.stop(ctx.currentTime + 0.1);
-                } catch(e) {}
+        // ================= MENÜ YÖNETİMİ =================
+        async function loadMenuItems() {
+            try {
+                const res = await fetch(`${API_BASE}/menu`);
+                if (!res.ok) return;
+                const data = await res.json();
+                
+                allMenuItems = [];
+                if (data.categories) {
+                    data.categories.forEach(cat => {
+                        if (cat.items) {
+                            cat.items.forEach(it => {
+                                allMenuItems.push({
+                                    ...it,
+                                    categorySlug: cat.slug,
+                                    categoryName: cat.name
+                                });
+                            });
+                        }
+                    });
+                }
+                renderMenuTable();
+            } catch (err) {
+                console.error('Menü yüklenirken hata:', err);
+            }
+        }
+
+        function filterMenuCategory(slug, btn) {
+            activeCategoryFilter = slug;
+            document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            renderMenuTable();
+        }
+
+        function renderMenuTable() {
+            const tbody = document.getElementById('menuTableBody');
+            tbody.innerHTML = '';
+
+            const filtered = activeCategoryFilter === 'all' 
+                ? allMenuItems 
+                : allMenuItems.filter(i => i.categorySlug === activeCategoryFilter);
+
+            filtered.forEach(item => {
+                const tr = document.createElement('tr');
+
+                // 1. Image
+                const tdImg = document.createElement('td');
+                const img = document.createElement('img');
+                img.src = item.imageUrl;
+                img.alt = item.title;
+                img.className = 'img-thumb';
+                img.onerror = () => { img.src = 'images/musab_logo.png'; };
+                tdImg.appendChild(img);
+
+                // 2. Title
+                const tdTitle = document.createElement('td');
+                tdTitle.innerHTML = `<strong>${escapeHtml(item.title)}</strong>`;
+
+                // 3. Category
+                const tdCat = document.createElement('td');
+                tdCat.textContent = item.categoryName || item.categorySlug;
+
+                // 4. Desc
+                const tdDesc = document.createElement('td');
+                tdDesc.style.color = '#666';
+                tdDesc.style.fontSize = '0.85rem';
+                tdDesc.style.maxWidth = '250px';
+                tdDesc.textContent = item.description || '-';
+
+                // 5. Price (Editable in modal)
+                const tdPrice = document.createElement('td');
+                const priceBadge = document.createElement('span');
+                priceBadge.className = 'price-badge';
+                priceBadge.textContent = `${item.price} ₺`;
+                tdPrice.appendChild(priceBadge);
+
+                // 6. Badge
+                const tdBadge = document.createElement('td');
+                if (item.badge) {
+                    const tag = document.createElement('span');
+                    tag.className = 'tag-badge';
+                    tag.textContent = item.badge;
+                    tdBadge.appendChild(tag);
+                } else {
+                    tdBadge.textContent = '-';
+                    tdBadge.style.color = '#aaa';
+                }
+
+                // 7. Actions
+                const tdActions = document.createElement('td');
+                tdActions.style.textAlign = 'right';
+
+                const editBtn = document.createElement('button');
+                editBtn.className = 'action-btn btn-edit';
+                editBtn.innerHTML = '<i class="fas fa-edit"></i> Düzenle';
+                editBtn.onclick = () => editMenuItem(item);
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'action-btn btn-delete';
+                deleteBtn.innerHTML = '<i class="fas fa-trash"></i> Sil';
+                deleteBtn.onclick = () => deleteMenuItem(item.id, item.title);
+
+                tdActions.appendChild(editBtn);
+                tdActions.appendChild(deleteBtn);
+
+                tr.appendChild(tdImg);
+                tr.appendChild(tdTitle);
+                tr.appendChild(tdCat);
+                tr.appendChild(tdDesc);
+                tr.appendChild(tdPrice);
+                tr.appendChild(tdBadge);
+                tr.appendChild(tdActions);
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        function openMenuItemModal(item = null) {
+            document.getElementById('menuItemForm').reset();
+            const modalTitle = document.getElementById('menuModalTitle');
+            const itemIdField = document.getElementById('menuItemId');
+
+            if (item) {
+                modalTitle.textContent = 'Ürünü Düzenle: ' + item.title;
+                itemIdField.value = item.id;
+                document.getElementById('itemTitle').value = item.title;
+                document.getElementById('itemCategory').value = item.categorySlug || 'izgara';
+                document.getElementById('itemPrice').value = item.price;
+                document.getElementById('itemImageUrl').value = item.imageUrl;
+                document.getElementById('itemBadge').value = item.badge || '';
+                document.getElementById('itemDescription').value = item.description || '';
+            } else {
+                modalTitle.textContent = 'Yeni Menü Ürünü Ekle';
+                itemIdField.value = '';
+            }
+
+            document.getElementById('menuItemModal').style.display = 'flex';
+        }
+
+        function closeMenuItemModal() {
+            document.getElementById('menuItemModal').style.display = 'none';
+        }
+
+        function editMenuItem(item) {
+            openMenuItemModal(item);
+        }
+
+        document.getElementById('menuItemForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('menuItemId').value;
+            const title = document.getElementById('itemTitle').value.trim();
+            const categorySlug = document.getElementById('itemCategory').value;
+            const price = parseFloat(document.getElementById('itemPrice').value);
+            const imageUrl = document.getElementById('itemImageUrl').value.trim();
+            const badge = document.getElementById('itemBadge').value.trim() || null;
+            const description = document.getElementById('itemDescription').value.trim();
+
+            const payload = {
+                title,
+                slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+                price,
+                imageUrl,
+                badge,
+                description,
+                categorySlug
+            };
+
+            try {
+                if (id) {
+                    // Update existing
+                    await fetch(`${API_BASE}/admin/menu/items/${id}`, {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'include',
+                        body: JSON.stringify(payload)
+                    });
+                    showToast(`"${title}" başarıyla güncellendi!`);
+                } else {
+                    // Create new
+                    await fetch(`${API_BASE}/admin/menu/items`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'include',
+                        body: JSON.stringify(payload)
+                    });
+                    showToast(`"${title}" menüye eklendi!`);
+                }
+
+                closeMenuItemModal();
+                await loadMenuItems();
+            } catch (err) {
+                alert('Menü güncellenirken bir hata oluştu.');
             }
         });
 
-        function playNotificationSound() {
+        async function deleteMenuItem(id, title) {
+            if (!confirm(`"${title}" ürününü silmek veya menüden kaldırmak istediğinize emin misiniz?`)) return;
+
             try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                if (ctx.state === 'suspended') ctx.resume();
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(880, ctx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.5);
-                gain.gain.setValueAtTime(0.5, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.5);
-            } catch(e) {
-                const sound = document.getElementById('orderSound');
-                if (sound) sound.play().catch(() => {});
+                await fetch(`${API_BASE}/admin/menu/items/${id}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                showToast(`"${title}" menüden kaldırıldı.`);
+                await loadMenuItems();
+            } catch (err) {
+                alert('Silme işleminde hata oluştu.');
             }
         }
 
-        function showVisualToast() {
-            showToast("🔔 YENİ SİPARİŞ GELDİ!");
+        // ================= GALERİ YÖNETİMİ =================
+        async function loadGalleryItems() {
+            try {
+                const res = await fetch(`${API_BASE}/admin/gallery`, { credentials: 'include' });
+                if (!res.ok) return;
+                const data = await res.json();
+                renderGalleryGrid(data.items || []);
+            } catch (err) {
+                console.error('Galeri yüklenirken hata:', err);
+            }
+        }
+
+        function renderGalleryGrid(items) {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                grid.innerHTML = '<p style="color:#777; grid-column:1/-1;">Henüz galeriye fotoğraf eklenmemiş.</p>';
+                return;
+            }
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'gallery-admin-card';
+
+                const img = document.createElement('img');
+                img.src = item.imageUrl;
+                img.alt = item.title || 'Galeri';
+                img.className = 'gallery-admin-img';
+                img.onerror = () => { img.src = 'images/musab_logo.png'; };
+
+                const body = document.createElement('div');
+                body.className = 'gallery-admin-body';
+
+                const title = document.createElement('span');
+                title.style.fontSize = '0.9rem';
+                title.style.fontWeight = '500';
+                title.textContent = item.title || 'Galeri Fotoğrafı';
+
+                const delBtn = document.createElement('button');
+                delBtn.className = 'action-btn btn-delete';
+                delBtn.innerHTML = '<i class="fas fa-trash"></i>';
+                delBtn.title = 'Fotoğrafı Sil';
+                delBtn.onclick = () => deleteGalleryItem(item.id);
+
+                body.appendChild(title);
+                body.appendChild(delBtn);
+
+                card.appendChild(img);
+                card.appendChild(body);
+                grid.appendChild(card);
+            });
+        }
+
+        function openGalleryModal() {
+            document.getElementById('galleryForm').reset();
+            document.getElementById('galleryModal').style.display = 'flex';
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('galleryModal').style.display = 'none';
+        }
+
+        document.getElementById('galleryForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const title = document.getElementById('galleryTitle').value.trim();
+            const imageUrl = document.getElementById('galleryImageUrl').value.trim();
+
+            try {
+                await fetch(`${API_BASE}/admin/gallery`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ title, imageUrl })
+                });
+
+                showToast('Fotoğraf galeriye eklendi!');
+                closeGalleryModal();
+                await loadGalleryItems();
+            } catch (err) {
+                alert('Fotoğraf eklenirken bir hata oluştu.');
+            }
+        });
+
+        async function deleteGalleryItem(id) {
+            if (!confirm('Bu fotoğrafı galeriden silmek istediğinize emin misiniz?')) return;
+
+            try {
+                await fetch(`${API_BASE}/admin/gallery/${id}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                showToast('Fotoğraf galeriden silindi.');
+                await loadGalleryItems();
+            } catch (err) {
+                alert('Silme işleminde hata oluştu.');
+            }
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
         }
     </script>
-    
-    <style>
-        @keyframes slideDown {
-            from { top: -50px; opacity: 0; }
-            to { top: 20px; opacity: 1; }
-        }
-    </style>
-
-    <!-- Audio Unlock Banner -->
-    <div id="audioUnlockBanner" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #d9534f; color: white; padding: 12px 24px; border-radius: 8px; z-index: 100000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; font-weight: bold;">
-        Sesli bildirimleri etkinleştirmek için ekrana tıklayın
-    </div>
-
-    <audio id="orderSound" preload="auto">
-        <source src="https://actions.google.com/sounds/v1/alarms/dinner_bell_triangle.ogg" type="audio/ogg">
-    </audio>
 </body>
 </html>
