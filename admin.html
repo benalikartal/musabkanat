@@ -2,14 +2,14 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="noindex, nofollow">
     <title>Yönetim Paneli | Musab Kanat Izgara</title>
     <link rel="icon" type="image/png" href="images/musab_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f9fa;
@@ -17,8 +17,23 @@
             display: flex;
             height: 100vh;
             overflow: hidden;
+            position: relative;
         }
         
+        /* Mobile Overlay */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+            z-index: 998;
+            transition: opacity 0.3s ease;
+        }
+        .sidebar-overlay.active {
+            display: block;
+        }
+
         /* Sidebar */
         .sidebar {
             width: 260px;
@@ -26,39 +41,54 @@
             color: #fff;
             display: flex;
             flex-direction: column;
-            transition: all 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-            z-index: 10;
+            z-index: 999;
+            flex-shrink: 0;
         }
         .sidebar-header {
-            padding: 25px 20px;
+            padding: 22px 20px;
             text-align: center;
             border-bottom: 1px solid rgba(255,255,255,0.08);
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+        }
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
             gap: 10px;
         }
         .sidebar-header img {
-            height: 38px;
+            height: 36px;
         }
         .sidebar-header h2 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: #C48B58;
             font-weight: 600;
         }
+        .sidebar-close-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 4px;
+        }
         .sidebar-menu {
             list-style: none;
-            padding: 20px 0;
+            padding: 15px 0;
             flex: 1;
+            overflow-y: auto;
         }
         .sidebar-menu li a {
             display: flex;
             align-items: center;
-            padding: 16px 25px;
-            color: rgba(255,255,255,0.7);
+            padding: 15px 22px;
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
-            transition: 0.25s;
+            transition: 0.2s;
             font-weight: 500;
             font-size: 0.95rem;
         }
@@ -68,14 +98,14 @@
             border-left: 4px solid #C48B58;
         }
         .sidebar-menu li a i {
-            margin-right: 14px;
+            margin-right: 12px;
             width: 20px;
             text-align: center;
             font-size: 1.1rem;
             color: #C48B58;
         }
         .sidebar-bottom {
-            padding: 20px;
+            padding: 15px 20px;
             border-top: 1px solid rgba(255,255,255,0.08);
         }
         .sidebar-bottom a {
@@ -83,9 +113,9 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             padding: 10px;
             border-radius: 6px;
             background: rgba(255,255,255,0.05);
@@ -102,29 +132,54 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            width: 100%;
+            min-width: 0;
         }
         
         /* Top Header */
         .top-header {
             background-color: #fff;
-            height: 70px;
-            padding: 0 35px;
+            height: 65px;
+            padding: 0 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             z-index: 5;
+            flex-shrink: 0;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .mobile-toggle-btn {
+            display: none;
+            background: none;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #2E1E17;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .mobile-toggle-btn:active {
+            background: #eee;
         }
         .user-info {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
         .logout-btn {
             background-color: #ffeaea;
             color: #d9534f;
             border: none;
-            padding: 9px 18px;
+            padding: 8px 14px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
@@ -132,7 +187,8 @@
             transition: 0.2s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            white-space: nowrap;
         }
         .logout-btn:hover {
             background-color: #d9534f;
@@ -141,35 +197,41 @@
 
         /* Content Area */
         .dashboard-area {
-            padding: 30px 35px;
+            padding: 25px;
             overflow-y: auto;
             flex: 1;
+            -webkit-overflow-scrolling: touch;
         }
         .page-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         .page-title {
-            font-size: 1.6rem;
+            font-size: 1.45rem;
             color: #2E1E17;
             font-weight: 700;
+            line-height: 1.2;
         }
         .btn-primary {
             background-color: #C48B58;
             color: white;
             border: none;
-            padding: 11px 20px;
+            padding: 10px 18px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             transition: 0.2s;
             box-shadow: 0 2px 6px rgba(196,139,88,0.3);
+            white-space: nowrap;
         }
         .btn-primary:hover {
             background-color: #b07845;
@@ -179,19 +241,27 @@
         /* Filter Tabs */
         .filter-tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-bottom: 18px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .filter-tabs::-webkit-scrollbar {
+            display: none;
         }
         .filter-tab {
-            padding: 8px 16px;
+            padding: 7px 14px;
             background: #fff;
             border: 1px solid #ddd;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 500;
             color: #666;
             transition: 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         .filter-tab.active, .filter-tab:hover {
             background: #2E1E17;
@@ -199,7 +269,7 @@
             border-color: #2E1E17;
         }
 
-        /* Table Card */
+        /* Responsive Table */
         .table-card {
             background-color: #fff;
             border-radius: 12px;
@@ -207,67 +277,78 @@
             border: 1px solid #eaeaea;
             overflow: hidden;
         }
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
+            min-width: 600px;
         }
         th {
-            padding: 16px 20px;
+            padding: 14px 16px;
             background-color: #fafafa;
             color: #555;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             border-bottom: 2px solid #eee;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
         td {
-            padding: 16px 20px;
+            padding: 14px 16px;
             border-bottom: 1px solid #f0f0f0;
             vertical-align: middle;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
         tr:hover td {
             background-color: #fdfdfd;
         }
 
         .img-thumb {
-            width: 60px;
-            height: 60px;
+            width: 52px;
+            height: 52px;
             border-radius: 8px;
             object-fit: cover;
             border: 1px solid #eee;
+            display: block;
         }
 
         .price-badge {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: #C48B58;
+            white-space: nowrap;
         }
 
         .tag-badge {
             display: inline-block;
-            padding: 4px 10px;
+            padding: 3px 8px;
             background: #fdf3ea;
             color: #C48B58;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 600;
+            white-space: nowrap;
         }
 
         .action-btn {
-            padding: 6px 12px;
+            padding: 6px 10px;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.8rem;
-            margin-right: 6px;
+            font-size: 0.78rem;
+            margin-right: 4px;
             transition: 0.2s;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
+            white-space: nowrap;
         }
         .btn-edit {
             background-color: #e8f4fd;
@@ -289,8 +370,8 @@
         /* Gallery Grid View */
         .gallery-admin-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 18px;
         }
         .gallery-admin-card {
             background: #fff;
@@ -303,19 +384,19 @@
             transition: transform 0.2s;
         }
         .gallery-admin-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
         .gallery-admin-img {
             width: 100%;
-            height: 180px;
+            height: 160px;
             object-fit: cover;
         }
         .gallery-admin-body {
-            padding: 15px;
+            padding: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex: 1;
+            gap: 8px;
         }
 
         /* File Upload Box */
@@ -323,45 +404,44 @@
             border: 2px dashed #C48B58;
             background: #fdfaf7;
             border-radius: 10px;
-            padding: 20px;
+            padding: 16px;
             text-align: center;
             cursor: pointer;
-            transition: background 0.2s, border-color 0.2s;
-            position: relative;
+            transition: background 0.2s;
         }
         .file-upload-box:hover {
             background: #f7efe6;
         }
         .file-upload-box i {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #C48B58;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .file-upload-box p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #555;
             font-weight: 500;
         }
         .file-upload-box small {
             color: #888;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             display: block;
-            margin-top: 4px;
+            margin-top: 3px;
         }
         .upload-preview-container {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-top: 12px;
-            padding: 10px;
+            gap: 12px;
+            margin-top: 10px;
+            padding: 8px;
             background: #fff;
             border-radius: 8px;
             border: 1px solid #eee;
         }
         .upload-preview-img {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             object-fit: cover;
             border-radius: 6px;
             border: 1px solid #ddd;
@@ -371,21 +451,21 @@
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.6);
             z-index: 99999;
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 15px;
             backdrop-filter: blur(4px);
         }
         .modal-card {
             background: #fff;
             width: 100%;
-            max-width: 520px;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            max-width: 500px;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
             max-height: 90vh;
             overflow-y: auto;
         }
@@ -393,31 +473,32 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
             border-bottom: 1px solid #eee;
         }
         .modal-title {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             color: #2E1E17;
             font-weight: 700;
         }
         .modal-close {
             background: none;
             border: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
             color: #999;
+            padding: 4px;
         }
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
         .form-group label {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             color: #444;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
         .form-control {
             width: 100%;
@@ -425,7 +506,7 @@
             border: 1px solid #ccc;
             border-radius: 6px;
             font-family: inherit;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             outline: none;
             transition: border-color 0.2s;
         }
@@ -435,52 +516,122 @@
         }
         textarea.form-control {
             resize: vertical;
-            min-height: 80px;
+            min-height: 70px;
         }
         .modal-actions {
             display: flex;
             justify-content: flex-end;
-            gap: 10px;
-            margin-top: 25px;
+            gap: 8px;
+            margin-top: 20px;
         }
         .btn-cancel {
-            padding: 10px 18px;
+            padding: 9px 16px;
             background: #eee;
             color: #555;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 0.85rem;
         }
 
         /* Toast */
         .toast-notification {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 20px;
+            right: 20px;
+            left: auto;
             background: #2E1E17;
             border-left: 4px solid #C48B58;
             color: white;
-            padding: 15px 25px;
+            padding: 12px 20px;
             font-weight: 500;
+            font-size: 0.88rem;
             border-radius: 8px;
             z-index: 999999;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             animation: slideInUp 0.3s ease;
         }
         @keyframes slideInUp {
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
+        /* ========================================= */
+        /* RESPONSIVE MEDIA QUERIES (MOBILE / TABLET) */
+        /* ========================================= */
+        @media (max-width: 900px) {
+            .mobile-toggle-btn {
+                display: inline-flex;
+            }
+            .sidebar-close-btn {
+                display: block;
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                transform: translateX(-100%);
+                box-shadow: 5px 0 20px rgba(0,0,0,0.3);
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .top-header {
+                padding: 0 15px;
+            }
+            .dashboard-area {
+                padding: 18px 15px;
+            }
+            .page-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn-primary {
+                width: 100%;
+            }
+            .toast-notification {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-title {
+                font-size: 1.25rem;
+            }
+            .top-header span {
+                font-size: 0.95rem !important;
+            }
+            .gallery-admin-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 12px;
+            }
+            .gallery-admin-img {
+                height: 130px;
+            }
+            .modal-card {
+                padding: 18px;
+            }
+        }
     </style>
 </head>
 <body>
     
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
     <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <img src="images/musab_logo.png" alt="Musab Kanat Logo">
-            <h2>Admin Paneli</h2>
+            <div class="sidebar-brand">
+                <img src="images/musab_logo.png" alt="Musab Kanat Logo">
+                <h2>Admin Paneli</h2>
+            </div>
+            <button class="sidebar-close-btn" onclick="closeSidebar()">&times;</button>
         </div>
         <ul class="sidebar-menu">
             <li><a href="#" onclick="showSection('menu')" id="nav-menu" class="active"><i class="fas fa-utensils"></i> Menü & Fiyat Yönetimi</a></li>
@@ -495,11 +646,14 @@
     <main class="main-content">
         <!-- Top Header -->
         <header class="top-header">
-            <div>
-                <span style="font-size: 1.15rem; font-weight: 600; color: #2E1E17;">Hoş Geldiniz, <span id="adminName" style="color: #C48B58;">Yönetici</span></span>
+            <div class="header-left">
+                <button class="mobile-toggle-btn" id="mobileToggleBtn" onclick="toggleSidebar()" aria-label="Menüyü Aç">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <span style="font-size: 1.1rem; font-weight: 600; color: #2E1E17;">Hoş Geldiniz, <span id="adminName" style="color: #C48B58;">Yönetici</span></span>
             </div>
             <div class="user-info">
-                <button class="logout-btn" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</button>
+                <button class="logout-btn" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Çıkış</button>
             </div>
         </header>
 
@@ -508,7 +662,7 @@
             <div class="page-header">
                 <div>
                     <h1 class="page-title">Menü & Fiyat Listesi</h1>
-                    <p style="color: #666; font-size: 0.9rem; margin-top: 4px;">Tüm yemek, tatlı ve içecek fiyatlarını ve fotoğraflarını buradan güncelleyebilirsiniz.</p>
+                    <p style="color: #666; font-size: 0.85rem; margin-top: 4px;">Tüm yemek, tatlı ve içecek fiyatlarını ve fotoğraflarını güncelleyebilirsiniz.</p>
                 </div>
                 <button class="btn-primary" onclick="openMenuItemModal()"><i class="fas fa-plus"></i> Yeni Ürün Ekle</button>
             </div>
@@ -522,22 +676,24 @@
             </div>
 
             <div class="table-card">
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 80px;">Görsel</th>
-                            <th>Ürün Adı</th>
-                            <th>Kategori</th>
-                            <th>Açıklama</th>
-                            <th style="width: 120px;">Fiyat</th>
-                            <th>Etiket</th>
-                            <th style="width: 160px; text-align: right;">İşlemler</th>
-                        </tr>
-                    </thead>
-                    <tbody id="menuTableBody">
-                        <!-- Populated by JS -->
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 70px;">Görsel</th>
+                                <th>Ürün Adı</th>
+                                <th>Kategori</th>
+                                <th>Açıklama</th>
+                                <th style="width: 110px;">Fiyat</th>
+                                <th>Etiket</th>
+                                <th style="width: 150px; text-align: right;">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="menuTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -546,7 +702,7 @@
             <div class="page-header">
                 <div>
                     <h1 class="page-title">Galeri Fotoğrafları</h1>
-                    <p style="color: #666; font-size: 0.9rem; margin-top: 4px;">Web sitesindeki galeri sayfasında görünen fotoğrafları bilgisayarınızdan yükleyin.</p>
+                    <p style="color: #666; font-size: 0.85rem; margin-top: 4px;">Web sitesindeki galeri sayfasında görünen fotoğrafları ekleyin veya silin.</p>
                 </div>
                 <button class="btn-primary" onclick="openGalleryModal()"><i class="fas fa-plus"></i> Yeni Fotoğraf Ekle</button>
             </div>
@@ -587,13 +743,13 @@
                     <input type="number" step="0.5" class="form-control" id="itemPrice" required placeholder="Örn: 345">
                 </div>
 
-                <!-- Bilgisayardan Fotoğraf Yükleme Alanı -->
+                <!-- Bilgisayardan / Telefondan Fotoğraf Seçimi -->
                 <div class="form-group">
                     <label>Ürün Fotoğrafı *</label>
                     <div class="file-upload-box" onclick="document.getElementById('itemFileInput').click()">
                         <i class="fas fa-cloud-upload-alt"></i>
-                        <p><strong style="color: #C48B58;">Bilgisayardan Fotoğraf Seçin</strong> veya buraya tıklayın</p>
-                        <small>JPG, PNG, WEBP veya GIF formatları desteklenir (Maks 10 MB)</small>
+                        <p><strong style="color: #C48B58;">Cihazdan Fotoğraf Seçin</strong></p>
+                        <small>JPG, PNG, WEBP veya GIF formatları (Maks 10 MB)</small>
                     </div>
                     <input type="file" id="itemFileInput" accept="image/*" style="display: none;" onchange="handleFileUpload(event, 'item')">
 
@@ -601,14 +757,14 @@
                         <img id="itemUploadPreviewImg" class="upload-preview-img" src="" alt="Önizleme">
                         <div>
                             <span id="itemUploadFileName" style="font-weight: 600; font-size: 0.85rem; color: #333; display: block;"></span>
-                            <span id="itemUploadStatus" style="font-size: 0.75rem; color: #28a745;"><i class="fas fa-check-circle"></i> Yüklendi ve hazır</span>
+                            <span id="itemUploadStatus" style="font-size: 0.75rem; color: #28a745;"><i class="fas fa-check-circle"></i> Hazır</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="itemBadge">Etiket (İsteğe Bağlı)</label>
-                    <input type="text" class="form-control" id="itemBadge" placeholder="Örn: Özel Soslu, Acılı Kömür Ateşi">
+                    <input type="text" class="form-control" id="itemBadge" placeholder="Örn: Özel Soslu, Şefin Spesiyali">
                 </div>
 
                 <div class="form-group">
@@ -639,13 +795,13 @@
                     <input type="text" class="form-control" id="galleryTitle" placeholder="Örn: Meşe kömüründe nar gibi kızaran kanatlar">
                 </div>
 
-                <!-- Bilgisayardan Fotoğraf Yükleme Alanı -->
+                <!-- Cihazdan Fotoğraf Seçimi -->
                 <div class="form-group">
                     <label>Fotoğraf Seçimi *</label>
                     <div class="file-upload-box" onclick="document.getElementById('galleryFileInput').click()">
                         <i class="fas fa-images"></i>
-                        <p><strong style="color: #C48B58;">Bilgisayardan Fotoğraf Seçin</strong></p>
-                        <small>JPG, PNG, WEBP veya GIF formatları desteklenir</small>
+                        <p><strong style="color: #C48B58;">Cihazdan Fotoğraf Seçin</strong></p>
+                        <small>JPG, PNG, WEBP veya GIF formatları</small>
                     </div>
                     <input type="file" id="galleryFileInput" accept="image/*" style="display: none;" onchange="handleFileUpload(event, 'gallery')">
 
@@ -653,7 +809,7 @@
                         <img id="galleryUploadPreviewImg" class="upload-preview-img" src="" alt="Önizleme">
                         <div>
                             <span id="galleryUploadFileName" style="font-weight: 600; font-size: 0.85rem; color: #333; display: block;"></span>
-                            <span id="galleryUploadStatus" style="font-size: 0.75rem; color: #28a745;"><i class="fas fa-check-circle"></i> Yüklendi ve hazır</span>
+                            <span id="galleryUploadStatus" style="font-size: 0.75rem; color: #28a745;"><i class="fas fa-check-circle"></i> Hazır</span>
                         </div>
                     </div>
                 </div>
@@ -670,6 +826,19 @@
         const API_BASE = window.location.port === '3000' ? 'http://localhost:4000/api' : '/api';
         let allMenuItems = [];
         let activeCategoryFilter = 'all';
+
+        // Responsive Sidebar Control
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('active');
+            document.getElementById('sidebarOverlay').classList.remove('active');
+        }
 
         // 1. Auth Check
         async function checkAuth() {
@@ -701,6 +870,7 @@
             document.getElementById('gallerySection').style.display = sec === 'gallery' ? 'block' : 'none';
             document.getElementById('nav-menu').classList.toggle('active', sec === 'menu');
             document.getElementById('nav-gallery').classList.toggle('active', sec === 'gallery');
+            closeSidebar();
         }
 
         async function handleLogout() {
@@ -722,7 +892,7 @@
             }, 3000);
         }
 
-        // ================= DOSYA YÜKLEME (PC'DEN SEÇİM) =================
+        // ================= DOSYA YÜKLEME =================
         async function handleFileUpload(event, type) {
             const file = event.target.files[0];
             if (!file) return;
@@ -733,7 +903,7 @@
             const statusSpan = document.getElementById(`${type}UploadStatus`);
             const hiddenUrl = document.getElementById(type === 'item' ? 'itemImageUrl' : 'galleryImageUrl');
 
-            // Show instant local preview
+            // Instant local preview
             const reader = new FileReader();
             reader.onload = (e) => {
                 previewImg.src = e.target.result;
@@ -744,7 +914,7 @@
             };
             reader.readAsDataURL(file);
 
-            // Upload file to backend server
+            // Upload file to backend
             const formData = new FormData();
             formData.append('file', file);
 
@@ -762,13 +932,11 @@
                     statusSpan.style.color = '#28a745';
                     showToast('Fotoğraf başarıyla yüklendi!');
                 } else {
-                    // Fallback to local DataURL if server upload failed
                     hiddenUrl.value = previewImg.src;
                     statusSpan.innerHTML = '<i class="fas fa-check-circle"></i> Hazır';
                     statusSpan.style.color = '#28a745';
                 }
             } catch (err) {
-                // Keep local base64 preview as fallback
                 hiddenUrl.value = previewImg.src;
                 statusSpan.innerHTML = '<i class="fas fa-check-circle"></i> Hazır';
                 statusSpan.style.color = '#28a745';
@@ -840,8 +1008,8 @@
                 // 4. Desc
                 const tdDesc = document.createElement('td');
                 tdDesc.style.color = '#666';
-                tdDesc.style.fontSize = '0.85rem';
-                tdDesc.style.maxWidth = '250px';
+                tdDesc.style.fontSize = '0.82rem';
+                tdDesc.style.maxWidth = '200px';
                 tdDesc.textContent = item.description || '-';
 
                 // 5. Price
@@ -915,7 +1083,7 @@
                     previewImg.src = item.imageUrl;
                     previewWrap.style.display = 'flex';
                     fileNameSpan.textContent = 'Mevcut Fotoğraf';
-                    statusSpan.innerHTML = '<i class="fas fa-image"></i> Değiştirmek için yukarıdan yeni dosya seçebilirsiniz';
+                    statusSpan.innerHTML = '<i class="fas fa-image"></i> Değiştirmek için dokunun';
                     statusSpan.style.color = '#666';
                 } else {
                     previewWrap.style.display = 'none';
@@ -949,7 +1117,7 @@
             const description = document.getElementById('itemDescription').value.trim();
 
             if (!imageUrl) {
-                alert('Lütfen bilgisayarınızdan bir fotoğraf seçiniz.');
+                alert('Lütfen bir ürün fotoğrafı seçiniz.');
                 return;
             }
 
@@ -1021,7 +1189,7 @@
             grid.innerHTML = '';
 
             if (items.length === 0) {
-                grid.innerHTML = '<p style="color:#777; grid-column:1/-1;">Henüz galeriye fotoğraf eklenmemiş.</p>';
+                grid.innerHTML = '<p style="color:#777; grid-column:1/-1; text-align:center; padding:30px;">Henüz galeriye fotoğraf eklenmemiş.</p>';
                 return;
             }
 
@@ -1039,8 +1207,11 @@
                 body.className = 'gallery-admin-body';
 
                 const title = document.createElement('span');
-                title.style.fontSize = '0.9rem';
+                title.style.fontSize = '0.82rem';
                 title.style.fontWeight = '500';
+                title.style.whiteSpace = 'nowrap';
+                title.style.overflow = 'hidden';
+                title.style.textOverflow = 'ellipsis';
                 title.textContent = item.title || 'Galeri Fotoğrafı';
 
                 const delBtn = document.createElement('button');
@@ -1075,7 +1246,7 @@
             const imageUrl = document.getElementById('galleryImageUrl').value.trim();
 
             if (!imageUrl) {
-                alert('Lütfen bilgisayarınızdan bir fotoğraf seçiniz.');
+                alert('Lütfen bir fotoğraf seçiniz.');
                 return;
             }
 
