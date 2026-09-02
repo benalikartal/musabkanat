@@ -211,7 +211,13 @@
                     body: JSON.stringify({ email, password })
                 });
 
-                const data = await res.json();
+                let data;
+                try {
+                    data = await res.json();
+                } catch (jsonErr) {
+                    showError(`Sunucu hatası (${res.status}). Lütfen backend servisinin ve veritabanının çalıştığından emin olun.`);
+                    return;
+                }
 
                 if (res.ok && data.success) {
                     if (!data.user || data.user.role !== 'ADMIN') {
@@ -225,7 +231,7 @@
                     showError(data.error?.message || 'E-posta veya şifre hatalı. Lütfen tekrar deneyiniz.');
                 }
             } catch (err) {
-                showError('Sunucuya bağlanılamadı. Lütfen backend servisinin çalıştığından emin olun.');
+                showError('Sunucuya bağlanılamadı. Lütfen backend servisinin ve internet bağlantınızın çalıştığından emin olun.');
             }
         });
     </script>

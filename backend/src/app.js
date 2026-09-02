@@ -24,6 +24,8 @@ export function createApp() {
   );
 
   // CORS Configuration - Allow musabkanat.com, localhost, vercel.app and all production origins
+  const allowedOrigins = (env.CORS_ORIGIN || '*').split(',').map((origin) => origin.trim());
+
   app.use(
     cors({
       origin: (origin, callback) => {
@@ -59,8 +61,9 @@ export function createApp() {
   // Static Images Serving
   app.use('/images', express.static(path.resolve(__dirname, '../../images')));
 
-  // Mount API Routes
+  // Mount API Routes (support both /api and root mounts for serverless rewrite flexibility)
   app.use('/api', apiRoutes);
+  app.use('/', apiRoutes);
 
   // 404 Handler
   app.use(notFoundHandler);

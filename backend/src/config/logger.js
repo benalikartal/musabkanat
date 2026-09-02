@@ -1,6 +1,8 @@
 import pino from 'pino';
 import { env } from './env.js';
 
+const isDev = (env.NODE_ENV === 'development' || process.env.NODE_ENV === 'development') && !process.env.VERCEL;
+
 export const logger = pino({
   level: env.NODE_ENV === 'test' ? 'silent' : env.NODE_ENV === 'production' ? 'info' : 'debug',
   redact: {
@@ -18,7 +20,7 @@ export const logger = pino({
     ],
     censor: '[REDACTED]'
   },
-  transport: env.NODE_ENV === 'development'
+  transport: isDev
     ? {
         target: 'pino-pretty',
         options: {

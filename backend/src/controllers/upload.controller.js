@@ -7,11 +7,17 @@ import { sendSuccess, sendError } from '../utils/response.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Target images directory at root
-const uploadDir = path.resolve(__dirname, '../../../images');
+// Target images directory at root (/tmp for Vercel/serverless environments)
+const uploadDir = process.env.VERCEL
+  ? path.join('/tmp', 'images')
+  : path.resolve(__dirname, '../../../images');
 
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
+try {
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
+} catch (err) {
+  // Gracefully handle read-only file systems in serverless runtimes
 }
 
 // Storage Configuration
