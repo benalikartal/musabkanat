@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "postinstall": "node -e \"process.env.DATABASE_URL=process.env.DATABASE_URL||'postgresql://dummy:dummy@localhost:5432/dummy';import('child_process').then(cp=>process.exit(cp.spawnSync(process.platform==='win32'?'npx.cmd':'npx',['prisma','generate','--schema=backend/prisma/schema.prisma'],{stdio:'inherit',shell:true,env:process.env}).status||0))\"",
-    "build": "node -e \"process.env.DATABASE_URL=process.env.DATABASE_URL||'postgresql://dummy:dummy@localhost:5432/dummy';import('child_process').then(cp=>process.exit(cp.spawnSync(process.platform==='win32'?'npx.cmd':'npx',['prisma','generate','--schema=backend/prisma/schema.prisma'],{stdio:'inherit',shell:true,env:process.env}).status||0))\"",
     "dev": "node server.js",
     "start": "node server.js"
   },
